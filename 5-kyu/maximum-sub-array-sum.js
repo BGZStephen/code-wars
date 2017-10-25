@@ -20,16 +20,15 @@ var maxSequence = function(arr){
   for (let i = 0; i < arr.length; i++) {
     for (let j = i + 1; j <= arr.length; j++) {
       let subSet = arr.slice(i, j);
-      let maxToTest = 0;
-      for (let k = 0; k < subSet.length; k++) {
-        maxToTest += subSet[k]
-      }
+      let maxToTest = subSet.reduce(function(a, b) {
+        return a + b;
+      })
       if (maxToTest > maxSum) {
         maxSum = maxToTest;
       }
     }
   }
-
+  console.log(maxSum)
   return maxSum;
 }
 
