@@ -28,11 +28,13 @@ A unit of time must be used "as much as possible". It means that the function sh
 
 
 function formatDuration (seconds) {
-  const SECOND = 1
-  const MINUTE = SECOND * 60;
-  const HOUR = MINUTE * 60;
-  const DAY = HOUR * 24;
-  const YEAR = DAY * 365;
+  const timeDurations = {
+    SECOND: 1,
+    MINUTE: SECOND * 60,
+    HOUR: MINUTE * 60,
+    DAY: HOUR * 24,
+    YEAR: DAY * 365,
+  }
 
   let timeQuantities = {
     year: 0,
@@ -49,56 +51,47 @@ function formatDuration (seconds) {
     return 'now';
   }
 
-  while (seconds - YEAR >= 0) {
-    seconds -= YEAR
-    timeQuantities.year += 1;
-  }
+  Object.keys(timeDurations).forEach(function(key) {
+    while (seconds - timeDurations[key] >= 0) {
+      seconds -= timeDurations[key]
+      timeQuantities[key.toLowerCase()] += 1;
+    }
 
-  while (seconds - DAY >= 0) {
-    seconds -= DAY
-    timeQuantities.day += 1;
-  }
+    // if(timeQuantities[key] > 0) {
+    //   outputValues.push(timeQuantities[key] > 1 ? `${timeQuantities[key]} ${key}s` : `${timeQuantities[key]} ${key}`)
+    // }
+  })
 
-  while (seconds - HOUR >= 0) {
-    seconds -= HOUR
-    timeQuantities.hour += 1;
-  }
-
-  while (seconds - MINUTE >= 0) {
-    seconds -= MINUTE
-    timeQuantities.minute += 1;
-  }
-
-  while (seconds - SECOND >= 0) {
-    seconds -= SECOND
-    timeQuantities.second += 1;
-  }
+  // while (seconds - YEAR >= 0) {
+  //   seconds -= YEAR
+  //   timeQuantities.year += 1;
+  // }
+  //
+  // while (seconds - DAY >= 0) {
+  //   seconds -= DAY
+  //   timeQuantities.day += 1;
+  // }
+  //
+  // while (seconds - HOUR >= 0) {
+  //   seconds -= HOUR
+  //   timeQuantities.hour += 1;
+  // }
+  //
+  // while (seconds - MINUTE >= 0) {
+  //   seconds -= MINUTE
+  //   timeQuantities.minute += 1;
+  // }
+  //
+  // while (seconds - SECOND >= 0) {
+  //   seconds -= SECOND
+  //   timeQuantities.second += 1;
+  // }
 
   Object.keys(timeQuantities).forEach(function(key) {
     if(timeQuantities[key] > 0) {
       outputValues.push(timeQuantities[key] > 1 ? `${timeQuantities[key]} ${key}s` : `${timeQuantities[key]} ${key}`)
     }
   })
-
-  // if (y > 0) {
-  //   outputValues.push(y > 1 ? `${y} years` : `${y} year`)
-  // }
-  //
-  // if (d > 0) {
-  //   outputValues.push(d > 1 ? `${d} days` : `${d} day`)
-  // }
-  //
-  // if (h > 0) {
-  //   outputValues.push(h > 1 ? `${h} hours` : `${h} hour`)
-  // }
-  //
-  // if (m > 0) {
-  //   outputValues.push(m > 1 ? `${m} minutes` : `${m} minute`)
-  // }
-  //
-  // if (s > 0) {
-  //   outputValues.push(s > 1 ? `${s} seconds` : `${s} second`)
-  // }
 
   for (let i = 0; i < outputValues.length; i++) {
     if (i < outputValues.length - 2) {
