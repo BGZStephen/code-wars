@@ -26,18 +26,22 @@ A unit of time must be used "as much as possible". It means that the function sh
 
 */
 
-const SECOND = 1
-const MINUTE = SECOND * 60;
-const HOUR = MINUTE * 60;
-const DAY = HOUR * 24;
-const YEAR = DAY * 365;
 
 function formatDuration (seconds) {
-  let y = 0;
-  let d = 0;
-  let h = 0;
-  let m = 0;
-  let s = 0;
+  const SECOND = 1
+  const MINUTE = SECOND * 60;
+  const HOUR = MINUTE * 60;
+  const DAY = HOUR * 24;
+  const YEAR = DAY * 365;
+
+  let timeQuantities = {
+    year: 0;
+    day: 0;
+    hour: 0;
+    month: 0;
+    second: 0;
+  }
+
   let outputValues = [];
   let outputString = '';
 
@@ -47,48 +51,54 @@ function formatDuration (seconds) {
 
   while (seconds - YEAR >= 0) {
     seconds -= YEAR
-    y += 1;
+    timeQuantities.year += 1;
   }
 
   while (seconds - DAY >= 0) {
     seconds -= DAY
-    d += 1;
+    timeQuantities.day += 1;
   }
 
   while (seconds - HOUR >= 0) {
     seconds -= HOUR
-    h += 1;
+    timeQuantities.hour += 1;
   }
 
   while (seconds - MINUTE >= 0) {
     seconds -= MINUTE
-    m += 1;
+    timeQuantities.month += 1;
   }
 
   while (seconds - SECOND >= 0) {
     seconds -= SECOND
-    s += 1;
+    timeQuantities.second += 1;
   }
 
-  if (y > 0) {
-    outputValues.push(y > 1 ? `${y} years` : `${y} year`)
-  }
+  Object.keys(timeQuantities).forEach(function(key) {
+    if(timeQuantities[key] > 0) {
+      outputValues.push(timeQuantities[key] > 1 ? `${key} years` : `${key} year`)
+    }
+  })
 
-  if (d > 0) {
-    outputValues.push(d > 1 ? `${d} days` : `${d} day`)
-  }
-
-  if (h > 0) {
-    outputValues.push(h > 1 ? `${h} hours` : `${h} hour`)
-  }
-
-  if (m > 0) {
-    outputValues.push(m > 1 ? `${m} minutes` : `${m} minute`)
-  }
-
-  if (s > 0) {
-    outputValues.push(s > 1 ? `${s} seconds` : `${s} second`)
-  }
+  // if (y > 0) {
+  //   outputValues.push(y > 1 ? `${y} years` : `${y} year`)
+  // }
+  //
+  // if (d > 0) {
+  //   outputValues.push(d > 1 ? `${d} days` : `${d} day`)
+  // }
+  //
+  // if (h > 0) {
+  //   outputValues.push(h > 1 ? `${h} hours` : `${h} hour`)
+  // }
+  //
+  // if (m > 0) {
+  //   outputValues.push(m > 1 ? `${m} minutes` : `${m} minute`)
+  // }
+  //
+  // if (s > 0) {
+  //   outputValues.push(s > 1 ? `${s} seconds` : `${s} second`)
+  // }
 
   for (let i = 0; i < outputValues.length; i++) {
     if (i < outputValues.length - 2) {
