@@ -35,11 +35,11 @@ function formatDuration (seconds) {
   const YEAR = DAY * 365;
 
   let timeQuantities = {
-    year: 0;
-    day: 0;
-    hour: 0;
-    month: 0;
-    second: 0;
+    year: 0,
+    day: 0,
+    hour: 0,
+    minute: 0,
+    second: 0,
   }
 
   let outputValues = [];
@@ -66,7 +66,7 @@ function formatDuration (seconds) {
 
   while (seconds - MINUTE >= 0) {
     seconds -= MINUTE
-    timeQuantities.month += 1;
+    timeQuantities.minute += 1;
   }
 
   while (seconds - SECOND >= 0) {
@@ -76,7 +76,7 @@ function formatDuration (seconds) {
 
   Object.keys(timeQuantities).forEach(function(key) {
     if(timeQuantities[key] > 0) {
-      outputValues.push(timeQuantities[key] > 1 ? `${key} years` : `${key} year`)
+      outputValues.push(timeQuantities[key] > 1 ? `${timeQuantities[key]} ${key}s` : `${timeQuantities[key]} ${key}`)
     }
   })
 
