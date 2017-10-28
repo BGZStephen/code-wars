@@ -29,11 +29,11 @@ A unit of time must be used "as much as possible". It means that the function sh
 
 function formatDuration (seconds) {
   const timeDurations = {
+    YEAR: 31536000,
+    DAY: 86400,
+    HOUR: 3600,
+    MINUTE: 60,
     SECOND: 1,
-    MINUTE: SECOND * 60,
-    HOUR: MINUTE * 60,
-    DAY: HOUR * 24,
-    YEAR: DAY * 365,
   }
 
   let timeQuantities = {
@@ -56,36 +56,7 @@ function formatDuration (seconds) {
       seconds -= timeDurations[key]
       timeQuantities[key.toLowerCase()] += 1;
     }
-
-    // if(timeQuantities[key] > 0) {
-    //   outputValues.push(timeQuantities[key] > 1 ? `${timeQuantities[key]} ${key}s` : `${timeQuantities[key]} ${key}`)
-    // }
   })
-
-  // while (seconds - YEAR >= 0) {
-  //   seconds -= YEAR
-  //   timeQuantities.year += 1;
-  // }
-  //
-  // while (seconds - DAY >= 0) {
-  //   seconds -= DAY
-  //   timeQuantities.day += 1;
-  // }
-  //
-  // while (seconds - HOUR >= 0) {
-  //   seconds -= HOUR
-  //   timeQuantities.hour += 1;
-  // }
-  //
-  // while (seconds - MINUTE >= 0) {
-  //   seconds -= MINUTE
-  //   timeQuantities.minute += 1;
-  // }
-  //
-  // while (seconds - SECOND >= 0) {
-  //   seconds -= SECOND
-  //   timeQuantities.second += 1;
-  // }
 
   Object.keys(timeQuantities).forEach(function(key) {
     if(timeQuantities[key] > 0) {
