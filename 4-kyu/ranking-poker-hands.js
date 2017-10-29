@@ -86,7 +86,40 @@ const CARD_VALUES = {
 function PokerHand(playerHand, opponentHand) {
   playerHand = playerHand.split(' ').sort(function (a, b) {
     return CARD_VALUES[a[0]] > CARD_VALUES[b[0]]
-  }).join(', ').replace(/,/g, '')
+  })
+
+  const playerHandSuits = {
+    S: 0,
+    H: 0,
+    C: 0,
+    D: 0,
+  }
+
+  playerHand.forEach(function (card) {
+    playerHandSuits[card[1]] += 1
+  })
+
+  Object.values(playerHandSuits).forEach(function (suit) {
+    if (suit === 5) {
+      console.log('5 suits check passed')
+      const straightFlushCheck = checkStraight()
+      console.log(straightFlushCheck)
+    }
+  })
+
+  function checkStraight() {
+    let sequence = 1
+    for (let i = 0; i < playerHand.length -1; i++) {
+      if (CARD_VALUES[playerHand[i][0]] + 1 === CARD_VALUES[playerHand[i + 1][0]]) {
+        sequence += 1
+      }
+    }
+    console.log(sequence)
+    return sequence === 5 ? true : false
+  }
+
+  console.log('finished')
+  console.log(playerHand)
 
 }
 
@@ -94,4 +127,5 @@ PokerHand.prototype.compareWith = function(hand){
     return Result.tie;
 }
 
-PokerHand("2S AH 4H 5S 6C", "AD 4C 5H 6H 2C")
+// PokerHand("2S AH 4H 5S 6C", "AD 4C 5H 6H 2C")
+PokerHand("2S 3S 4S 5S 6S", "AD 4C 5H 6H 2C")
