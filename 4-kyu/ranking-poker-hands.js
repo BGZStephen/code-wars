@@ -28,44 +28,17 @@ There is no ranking for the suits.
 
 */
 
-const HAND_RANKS = [
-  {
-    name: 'Straight Flush',
-    rank: 1
-  },
-  {
-    name: 'Four of a kind',
-    rank: 2
-  },
-  {
-    name: 'Full house',
-    rank: 3
-  },
-  {
-    name: 'Flush',
-    rank: 4
-  },
-  {
-    name: 'Straight',
-    rank: 5
-  },
-  {
-    name: 'Three of a kind',
-    rank: 6
-  },
-  {
-    name: 'Two pair',
-    rank: 7
-  },
-  {
-    name: 'One pair',
-    rank: 8
-  },
-  {
-    name: 'High card',
-    rank: 9
-  },
-]
+const HAND_RANKS = {
+  'straight-flush':  1,
+  'four-of-a-kind': 2,
+  'full-house': 3,
+  'flush': 4,
+  'straight': 5,
+  'three-of-a-kind': 6,
+  'two-pair': 7,
+  'one-pair': 8,
+  'high-card': 9,
+}
 
 const CARD_VALUES = {
   2: 2,
@@ -95,15 +68,46 @@ function PokerHand(playerHand, opponentHand) {
     D: 0,
   }
 
+  const playerHandValues = {
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0,
+    8: 0,
+    9: 0,
+    T: 0,
+    J: 0,
+    Q: 0,
+    K: 0,
+    A: 0,
+  }
+
   playerHand.forEach(function (card) {
     playerHandSuits[card[1]] += 1
   })
 
+  playerHand.forEach(function (card) {
+    playerHandValues[card[0]] += 1
+  })
+
   Object.values(playerHandSuits).forEach(function (suit) {
     if (suit === 5) {
-      console.log('5 suits check passed')
       const straightFlushCheck = checkStraight()
-      console.log(straightFlushCheck)
+      if (straightFlushCheck) {
+        console.log(HAND_RANKS['straight-flush'])
+        return HAND_RANKS['straight-flush']
+      }
+      console.log(HAND_RANKS['flush'])
+      return HAND_RANKS['flush']
+    }
+  })
+
+  Object.values(playerHandValues).forEach(function (value) {
+    if (value === 4) {
+      console.log(HAND_RANKS['four-of-a-kind'])
+      return HAND_RANKS['four-of-a-kind']
     }
   })
 
@@ -114,12 +118,8 @@ function PokerHand(playerHand, opponentHand) {
         sequence += 1
       }
     }
-    console.log(sequence)
     return sequence === 5 ? true : false
   }
-
-  console.log('finished')
-  console.log(playerHand)
 
 }
 
@@ -128,4 +128,4 @@ PokerHand.prototype.compareWith = function(hand){
 }
 
 // PokerHand("2S AH 4H 5S 6C", "AD 4C 5H 6H 2C")
-PokerHand("2S 3S 4S 5S 6S", "AD 4C 5H 6H 2C")
+PokerHand("2S 2c 2h 2d 6S", "AD 4C 5H 6H 2C")
