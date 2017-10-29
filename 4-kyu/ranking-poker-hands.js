@@ -111,6 +111,13 @@ function PokerHand(playerHand, opponentHand) {
     }
   })
 
+  playerHandValues.sort();
+  for(let i = 0; i < playerHandValues.length -1; i++) {
+    if (playerHandValues[i] === 3 && playerHandValues[i + 1] === 2) {
+      return HAND_RANKS['full-house'];
+    }
+  }
+
   function checkStraight() {
     let sequence = 1
     for (let i = 0; i < playerHand.length -1; i++) {
@@ -128,4 +135,4 @@ PokerHand.prototype.compareWith = function(hand){
 }
 
 // PokerHand("2S AH 4H 5S 6C", "AD 4C 5H 6H 2C")
-PokerHand("2S 2c 2h 2d 6S", "AD 4C 5H 6H 2C")
+PokerHand("2S 2c 2h 4d 4S", "AD 4C 5H 6H 2C")
