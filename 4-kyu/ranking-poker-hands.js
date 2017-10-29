@@ -113,11 +113,30 @@ function PokerHand(playerHand, opponentHand) {
 
   const sortedPlayerHandValues = Object.values(playerHandValues).sort();
 
-  for(let i = 0; i < sortedPlayerHandValues.length -1; i++) {
-    if (sortedPlayerHandValues.indexOf(3) !== -1 && sortedPlayerHandValues.indexOf(2) !== -1) {
-      console.log(HAND_RANKS['full-house']);
-      return HAND_RANKS['full-house'];
+  if (sortedPlayerHandValues.indexOf(3) !== -1 && sortedPlayerHandValues.indexOf(2) !== -1) {
+    console.log(HAND_RANKS['full-house']);
+    return HAND_RANKS['full-house'];
+  } else if (sortedPlayerHandValues.indexOf(3) !== -1) {
+    console.log(HAND_RANKS['three-of-a-kind']);
+    return HAND_RANKS['three-of-a-kind'];
+  }
+
+  let numberOfPairs = 0;
+
+  sortedPlayerHandValues.forEach(function (value) {
+    if (value === 2) {
+      numberOfPairs += 1;
     }
+  })
+
+  if (numberOfPairs === 2) {
+    console.log(HAND_RANKS['two-pair']);
+    return HAND_RANKS['two-pair'];
+  } else if (numberOfPairs === 1) {
+    console.log(HAND_RANKS['one-pair']);
+    return HAND_RANKS['one-pair'];
+  } else {
+    return HAND_RANKS['high-card'];
   }
 
   function checkStraight() {
@@ -129,7 +148,6 @@ function PokerHand(playerHand, opponentHand) {
     }
     return sequence === 5 ? true : false
   }
-
 }
 
 PokerHand.prototype.compareWith = function(hand){
@@ -137,4 +155,4 @@ PokerHand.prototype.compareWith = function(hand){
 }
 
 // PokerHand("2S AH 4H 5S 6C", "AD 4C 5H 6H 2C")
-PokerHand("2S 2c 2h 4d 4S", "AD 4C 5H 6H 2C")
+PokerHand("2s 2c 3h 4d 5S", "AD 4C 5H 6H 2C")
