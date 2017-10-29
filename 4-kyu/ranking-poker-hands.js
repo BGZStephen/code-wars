@@ -111,9 +111,11 @@ function PokerHand(playerHand, opponentHand) {
     }
   })
 
-  playerHandValues.sort();
-  for(let i = 0; i < playerHandValues.length -1; i++) {
-    if (playerHandValues[i] === 3 && playerHandValues[i + 1] === 2) {
+  const sortedPlayerHandValues = Object.values(playerHandValues).sort();
+
+  for(let i = 0; i < sortedPlayerHandValues.length -1; i++) {
+    if (sortedPlayerHandValues.indexOf(3) !== -1 && sortedPlayerHandValues.indexOf(2) !== -1) {
+      console.log(HAND_RANKS['full-house']);
       return HAND_RANKS['full-house'];
     }
   }
