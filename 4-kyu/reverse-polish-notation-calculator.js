@@ -40,6 +40,16 @@ function calc(expr) {
     })
     return parseFloat(expr[0])
   }
+
+  let answer = 0
+
+  for(let i = 0; i < expr.length; i++) {
+    operators.forEach(function (operator) {
+      if (expr[i] === operator) {
+        answer += expr[i] operator expr[i -1];
+      }
+    })
+  }
 }
 
-calc("4 2 1");
+calc("4 2 /");
