@@ -19,16 +19,16 @@ function calc(expr) {
     return 0;
   }
 
-  const operators = [
-    '/',
-    '*',
-    '+',
-    '-'
-  ]
+  const operators = {
+    '/': 'divide',
+    '*': 'multiply',
+    '+': 'add',
+    '-': 'subtract',
+  }
   let operatorPresence = false;
 
   expr = expr.split(" ");
-  operators.forEach(function (operator) {
+  Object.keys(operators).forEach(function (operator) {
     if (expr.indexOf(operator) !== -1) {
       operatorPresence = true;
     }
@@ -44,12 +44,31 @@ function calc(expr) {
   let answer = 0
 
   for(let i = 0; i < expr.length; i++) {
-    operators.forEach(function (operator) {
-      if (expr[i] === operator) {
-        answer += expr[i] operator expr[i -1];
+    Object.keys(operators).forEach(function (key) {
+      if (expr[i + 1] === key) {
+        if (operators[key] === 'divide') {
+          answer += (expr[i -1] / expr[i])
+          i += 2
+        }
+
+        if (operators[key] === 'multiply') {
+          answer += (expr[i -1] * expr[i])
+          i += 2
+        }
+
+        if (operators[key] === 'subtract') {
+          answer += (expr[i -1] - expr[i])
+          i += 2
+        }
+
+        if (operators[key] === 'add') {
+          answer += parseFloat(expr[i -1]) + parseFloat(expr[i])
+          i += 2
+        }
       }
     })
   }
+  return answer
 }
 
-calc("4 2 /");
+calc("5 1 2 + 4 * + 3");
