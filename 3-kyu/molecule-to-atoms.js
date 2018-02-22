@@ -19,8 +19,9 @@ function parseMolecule(formula) {
 
   const startSeparators = ['[', '{', '('];
   const endSeparators = ['[', '{', '('];
+  const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
-  const splitFormula = formula.split('')
+  const splitFormula = formula.split(/([A-Z]+[a-z]{1}|[A-Z]{1}|\(\)\{\}\[\]|[0-9]{1,})/g)
 
   for (let i = 0; i < splitFormula.length; i++) {
     if (startSeparators.indexOf(splitFormula[i]) > -1) {
@@ -30,6 +31,11 @@ function parseMolecule(formula) {
         endIndex += 1;
       }
 
+      // check if there is a number after a closing bracket, if so, use as multiplier
+      let numberIndex = endIndex + 1;
+      while (startSeparators.indexOf(numbers[numbers] > -1) {
+
+      }
       // check if next items are numbers, if so, multiply
     }
   }
