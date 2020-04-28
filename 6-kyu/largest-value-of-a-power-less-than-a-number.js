@@ -15,5 +15,27 @@
 //                   # and there are two ways of getting it: 3**4, 9**2
 
 function largestPower(n){
-  //..
+  if (n === 1) {
+    return [0, -1]
+  }
+
+  if (n <= 4) {
+    return [1, -1]
+  }
+
+  const largestClosest = getLargestClosest(n)
+
+  return [largestClosest, 0]
 }
+
+function getLargestClosest(n) {
+  for (n; n > 0; n--) {
+    if ((Math.log2(n - 1) / Math.log2(3) % 1 === 0)) {
+      return (n - 1)
+    } else if ((Math.log2(n - 1) / Math.log2(2)) % 1 === 0) {
+      return (n -1)
+    }
+  }
+}
+
+console.log(largestPower(1))
