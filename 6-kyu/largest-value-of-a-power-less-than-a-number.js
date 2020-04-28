@@ -24,8 +24,9 @@ function largestPower(n){
   }
 
   const largestClosest = getLargestClosest(n)
+  const exponentCount = getExponents(largestClosest)
 
-  return [largestClosest, 0]
+  return [largestClosest, exponentCount]
 }
 
 function getLargestClosest(n) {
@@ -38,4 +39,14 @@ function getLargestClosest(n) {
   }
 }
 
-console.log(largestPower(90))
+function getExponents(n) {
+  let count = 0;
+
+  for (let base = 2; base <= (n / 2); base ++) {
+    if ((Math.log2(n) / Math.log2(base) % 1 === 0)) {
+      count += 1;
+    }
+  }
+
+  return count;
+}
