@@ -30,12 +30,12 @@ function largestPower(n){
 
 function getLargestClosest(n) {
   for (n; n > 0; n--) {
-    if ((Math.log2(n - 1) / Math.log2(3) % 1 === 0)) {
-      return (n - 1)
-    } else if ((Math.log2(n - 1) / Math.log2(2)) % 1 === 0) {
-      return (n -1)
+    for (let base = 2; base < n - 1; base ++) {
+      if ((Math.log2(n - 1) / Math.log2(base) % 1 === 0)) {
+        return (n - 1)
+      }
     }
   }
 }
 
-console.log(largestPower(1))
+console.log(largestPower(90))
