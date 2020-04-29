@@ -8,7 +8,9 @@
 // (Also, there is no reason to test for edge cases: the input to your function will always be valid for this kata.)
 
 function splitInteger(num, parts) {
-  
+  if (num / parts % 1 === 0) {
+    return new Array(parts).fill(num / parts, 0)
+  }
 }
 
 console.log(splitInteger(20, 6))
