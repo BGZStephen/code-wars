@@ -11,6 +11,15 @@ function splitInteger(num, parts) {
   if (num / parts % 1 === 0) {
     return new Array(parts).fill(num / parts, 0)
   }
-}
 
-console.log(splitInteger(20, 6))
+  const res = new Array(parts).fill(Math.floor(num / parts))
+
+  let remaining = num - res.reduce((a, b) => a + b, 0);
+
+  for (remaining; remaining > 0; remaining--) {
+    res[0] += 1;
+    res.sort()
+  }
+
+  return res
+}
