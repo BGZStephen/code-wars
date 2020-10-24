@@ -19,5 +19,3 @@ function removeParentheses(s){
 
   return s;
 }
-
-console.log(removeParentheses('a(b(c))'))
