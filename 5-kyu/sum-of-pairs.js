@@ -25,22 +25,30 @@
 function sumPairs(ints, s) {
   let bestMatch = undefined;
 
-  for (let i = 0; i < ints.length - 1; i += 1) {
+  const generallyUniqueInts = [];
+
+  for (const [index, value] of ints.entries()) {
+    if (ints[index +1] !== value || ints[index + 2] !== value) {
+      generallyUniqueInts.push(value)
+    }
+  }
+
+  for (let i = 0; i < generallyUniqueInts.length - 1; i += 1) {
     if (bestMatch && i > bestMatch.endIndex) {
       return bestMatch.values;
     }
 
-    for (let j = i + 1; j < ints.length; j += 1) {   
+    for (let j = i + 1; j < generallyUniqueInts.length; j += 1) {   
       if (bestMatch && i > bestMatch.endIndex) {
         break;
       }
       
-      if (ints[i] + ints[j] === s) {
+      if (generallyUniqueInts[i] + generallyUniqueInts[j] === s) {
         if (!bestMatch) {
           bestMatch = {
             startIndex: i,
             endIndex: j,
-            values: [ints[i], ints[j]]
+            values: [generallyUniqueInts[i], generallyUniqueInts[j]]
           }
         }
 
@@ -48,7 +56,7 @@ function sumPairs(ints, s) {
           bestMatch = {
             startIndex: i,
             endIndex: j,
-            values: [ints[i], ints[j]]
+            values: [generallyUniqueInts[i], generallyUniqueInts[j]]
           }
         }
       }
@@ -61,6 +69,3 @@ function sumPairs(ints, s) {
 
   return bestMatch.values;
 }
-
-console.log(sumPairs([1, 4, 8, 7, 3, 15], 8))
-console.log(sumPairs([10, 5, 2, 3, 7, 5], 10))
