@@ -27,7 +27,6 @@ function triangle(row) {
 
   while (row.length > 1) {
     row = condenseRow(row)
-    console.log(row)
   }
 
   return row.join('');
