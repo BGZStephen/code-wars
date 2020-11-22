@@ -11,5 +11,21 @@
 // The resulting array shouldn't necessarily match anyone in the tests, a function just checks if the array is now wave sorted.
 
 function waveSort(arr) {
-  
+  let i = 1;
+
+  arr.sort((a, b) => b - a);
+
+  while (i < arr.length - 1) {
+    let j = i + 1;
+    let tempI = arr[i]
+    let tempJ = arr[j]
+
+    arr[j] = tempI;
+    arr[i] = tempJ;
+
+    i += 2;
+    j += 2
+  }
 }
+
+waveSort([1, 2, 34, 4, 5, 5, 5, 65, 6, 65, 5454, 4])
