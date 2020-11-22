@@ -18,6 +18,3 @@ function cleanString(s) {
   return s
 };
 
-console.log(cleanString("abc#d##c"))
-console.log(cleanString("abc##d######"))
-
