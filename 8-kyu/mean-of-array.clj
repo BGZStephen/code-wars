@@ -7,11 +7,9 @@
 (ns marks)
 
 (defn get-average [marks]
-	(def total-marks 0)
+  (def total-marks 0)
 
-	(doseq [mark (vector marks)]
-		(def total-marks (+ total-marks mark))
-	)
+  (doseq [mark (vector marks)]
+    (def total-marks (+ total-marks mark)))
 
-	(int (/ total-marks (count marks)))
-)
+  (int (/ total-marks (count marks))))
