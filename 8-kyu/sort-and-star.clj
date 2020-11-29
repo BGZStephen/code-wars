@@ -4,6 +4,9 @@
 
 ; You should not remove or add elements from/to the array.
 
+(ns clojure.star-sort
+  (:require [clojure.string :as str]))
+
 (defn star-sort [arr]
-  (str (str/join "***" (str/split (nth (sort arr) 0) #"")))
+  (str/join "***" (first ordered-arr))
 )
