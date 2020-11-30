@@ -18,6 +18,3 @@
   
   (if (empty? res) 0 (Integer/parseInt res))
 )
-
-(println (no-boring-zeros 0))
-(println (no-boring-zeros -960000))
