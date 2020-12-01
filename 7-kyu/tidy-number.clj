@@ -36,11 +36,9 @@
   (:require [clojure.string :as str]))
 
 (defn tidy-number [n]
-  (def is-tidy true)
-  (def num-arr (mapv #(Integer/parseInt %) (str/split (str n) #"")))
   (loop [x 0 y 1]
-    (when (and (< y (count num-arr)) is-tidy)
-      (if (> (nth num-arr x) (nth num-arr y)) (def is-tidy false))
-      (recur (+ x 1) (+ y 1))))
-
-  (boolean is-tidy))
+    (let [num-arr (mapv #(Integer/parseInt %) (str/split (str n) #""))]
+      (cond
+        (= y (count num-arr)) true
+        (> (nth num-arr x) (nth num-arr y)) false
+        :else (recur (+ x 1) (+ y 1))))))
