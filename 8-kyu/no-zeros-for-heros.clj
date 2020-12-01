@@ -14,7 +14,7 @@
   (:require [clojure.string :as str]))
 
 (defn no-boring-zeros [n]
-  (def res (str/replace (str n) #"0*$" ""))
-  
-  (if (empty? res) 0 (Integer/parseInt res))
-)
+  (let [res (str/replace (str n) #"0*$" "")]
+    (if
+     (empty? res) 0
+     (Integer/parseInt res))))
