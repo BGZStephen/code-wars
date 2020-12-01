@@ -8,5 +8,5 @@
   (:require [clojure.string :as str]))
 
 (defn star-sort [arr]
-  (str/join "***" (first ordered-arr))
+  (str/join "***" (first (sort arr)))
 )
