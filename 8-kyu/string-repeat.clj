@@ -6,9 +6,4 @@
 (ns clojure.string-repeat)
 
 (defn repeat-str [n strng]
-  (def res "")
-  (loop [x n]
-    (when (> x 0)
-      (def res (str res strng))
-      (recur (- x 1))))
-  (str res))
+  (apply str (repeat n strng)))
