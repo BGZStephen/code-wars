@@ -5,13 +5,4 @@
 (ns kata)
 
 (defn square-sum [lst]
-  (def res 0)
-
-  (doseq [item lst]
-    (def res
-      (+ res
-         (Math/pow
-          item
-          2))))
-
-  (int res))
+  (reduce + (map #(int (Math/pow % 2)) lst)))
