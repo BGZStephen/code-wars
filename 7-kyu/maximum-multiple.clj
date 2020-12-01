@@ -25,15 +25,9 @@
 ;; (185) is divisible by (37) , (185) is less than or equal to bound (200) , and (185) is > 0 .
 
 (ns kata)
-(defn max-multiple [d b]
-  (def res (* 1 d))
-  
-  (loop [multiplier 1]
-    (when (<= (+ res d) b)
-      (def res (* d multiplier))
-      (recur (+ multiplier 1))))
-  
-  (int res)
-  )
 
-(println (max-multiple 37,200))
+(defn max-multiple [d b]
+  (loop [multiplier 1]
+    (if (<= (+ (* multiplier d) d) b)
+      (recur (+ multiplier 1))
+      (int (* multiplier d)))))
