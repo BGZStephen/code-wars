@@ -37,5 +37,3 @@
 (defn men-from-boys [arr]
   (let [unique-arr (distinct arr)]
     (concat (filter even? (sort < unique-arr)) (filter odd? (sort > unique-arr)))))
-
-(println (men-from-boys [7 3 14 17]))
