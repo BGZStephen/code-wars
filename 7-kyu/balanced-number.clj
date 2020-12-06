@@ -38,7 +38,11 @@
 
 ;; Note : The middle digit(s) are 02 .
 
-(ns balanced-number)
+
+(defn to-int-vector
+  [num]
+  (map #(Integer/parseInt %) (str/split (str num) #"")))
+
 
 (defn balanced-num
   [num])
