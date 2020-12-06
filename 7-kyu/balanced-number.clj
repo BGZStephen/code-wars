@@ -38,17 +38,29 @@
 
 ;; Note : The middle digit(s) are 02 .
 
+(ns balanced-number
+  (:require [clojure.string :as str]))
 
 (defn to-int-vector
   [num]
-  (map #(Integer/parseInt %) (str/split (str num) #"")))
+  (vec (map #(Integer/parseInt %) (str/split (str num) #""))))
 
-(defn get-number-mid-point-sum [number-parts]
+(defn get-number-left-side-sum [number-parts]
   (let [number-count (count number-parts)]
     (cond
-      (odd? number-count) (nth number-parts (Math/floor (/ number-count 2)))
-      (even? number-count) (+ (nth number-parts (dec (/ number-count 2))) (nth number-parts (/ number-count 2))))))
+      (odd? number-count) (reduce + (subvec number-parts 0 (Math/floor (/ number-count 2))))
+      (even? number-count) (reduce + (subvec number-parts 0 (dec (/ number-count 2)))))))
 
+(defn get-number-right-side-sum [number-parts]
+  (let [number-count (count number-parts)]
+    (cond
+      (odd? number-count) (reduce + (subvec number-parts (Math/ceil (/ number-count 2))))
+      (even? number-count) (reduce + (subvec number-parts (inc (/ number-count 2)))))))
 
-(defn balanced-num
-  [num])
+(defn balanced-num [num]
+  (let [number-parts (to-int-vector num)
+        left-side-sum (get-number-left-side-sum number-parts)
+        right-side-sum (get-number-right-side-sum number-parts)]
+    (println left-side-sum right-side-sum)
+    (if (= left-side-sum right-side-sum) "Balanced"
+        "Not Balanced")))
