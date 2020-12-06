@@ -43,6 +43,12 @@
   [num]
   (map #(Integer/parseInt %) (str/split (str num) #"")))
 
+(defn get-number-mid-point-sum [number-parts]
+  (let [number-count (count number-parts)]
+    (cond
+      (odd? number-count) (nth number-parts (Math/floor (/ number-count 2)))
+      (even? number-count) (+ (nth number-parts (dec (/ number-count 2))) (nth number-parts (/ number-count 2))))))
+
 
 (defn balanced-num
   [num])
