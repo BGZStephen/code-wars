@@ -43,5 +43,3 @@
     (colored-triangle (map #(determine-color-from-pair %) (partition 2 1 arr)))
   )
 )
-
-(println (colored-triangle ["R" "G" "B" "R"]))
