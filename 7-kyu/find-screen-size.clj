@@ -10,5 +10,3 @@
   (let [[width-ratio height-ratio] (map #(Integer/parseInt %) (str/split ratio #":"))]
     (str width "x" (* (/ width width-ratio) height-ratio)))
   )
-
-(println (get-screen-height 1920 "16:9"))
