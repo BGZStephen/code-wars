@@ -12,6 +12,12 @@
 (ns kata)
 
 (defn triple-x [strng]
-  (= false (empty? (re-find #"^xxx(.*)" (first (re-find #"x(.*)" strng))))))
+  (->> strng
+      (re-find #"x(.*)")
+      first
+      (re-find #"^xxx(.*)")
+      empty?
+      false?
+  ))
 
 (println (triple-x "softx kitty, warm kitty, xxxxx"))
