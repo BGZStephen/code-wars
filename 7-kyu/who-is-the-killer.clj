@@ -17,13 +17,21 @@
   (:require [clojure.set :as set]))
 
 (defn suspect-met-dead? [suspect dead]
-  (= (count dead) (count (set/intersection (set (last suspect)) (set dead)))))
+  (-> suspect
+      (last)
+      (set)
+      (set/intersection (set dead))
+      (count)
+      (= (count dead))))
+
 
 (defn who-is-the-killer [suspects, dead]
-  (first (first (filter #(suspect-met-dead? % dead) suspects)))
-  )
+  (->> suspects
+       (filter #(suspect-met-dead? % dead))
+       first
+       first))
 
 (println (who-is-the-killer {:james [:jacob :bill :lucas]
                              :johnny [:david :kyle :lucas]
-                             :peter [:lucy :kyle]} 
+                             :peter [:lucy :kyle]}
                             [:lucas :bill]))
