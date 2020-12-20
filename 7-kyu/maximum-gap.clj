@@ -35,5 +35,8 @@
 (ns kata)
 
 (defn find-gap [ints]
-  (let [sorted-ints (sort < ints)]
-    (reduce max (map (fn [[a b]] (- b a)) (partition 2 1 sorted-ints)))))
+  (->> ints
+       (sort <)
+       (partition 2 1)
+       (map (fn [[a b]] (- b a)))
+       (reduce max)))
