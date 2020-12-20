@@ -23,22 +23,6 @@
 (ns kata)
 
 (defn row-weights [weights]
-  (def teamAWeights 0)
-  (def teamBWeights 0)
-  
-  (def nextPlayerToTeamA true)
-
-  (doseq [weight weights] 
-		(if (= nextPlayerToTeamA true) 
-			(def teamAWeights (+ teamAWeights, weight))
-		)
-
-		(if (= nextPlayerToTeamA false) 
-			(def teamBWeights (+ teamBWeights, weight))
-		)
-
-		(def nextPlayerToTeamA (not nextPlayerToTeamA)) 
-	)
-
-	(list teamAWeights, teamBWeights)
-)
+  (vector
+   (reduce + (map-indexed (fn [i v] (if (even? i) v 0)) weights))
+   (reduce + (map-indexed (fn [i v] (if (odd? i) v 0)) weights))))
