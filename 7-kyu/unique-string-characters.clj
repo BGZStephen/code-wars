@@ -20,5 +20,3 @@
   (str/join "" (concat
                 (vec (filter #(= false (str/includes? b %)) (str/split a #"")))
                 (vec (filter #(= false (str/includes? a %)) (str/split b #""))))))
-
-(println (solve "xyab","xzca"))
