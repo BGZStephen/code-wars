@@ -22,5 +22,3 @@
         seven-count (count (filter #(= "7" %) (str/split ascii-string #"")))]
     (* seven-count 6)
     ))
-
-(println (calc "aaaaaddddr"))
