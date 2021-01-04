@@ -16,6 +16,12 @@
 ;; * consecutiveDucks(42)  ==>  return (true) //  42 , could be expressed as a sum of ( 9 + 10 + 11 + 12 )  . 
 
 (ns kata)
-(defn consecutive-ducks [n]
-  ;; your code here
-  )
+
+(defn consecutive-ducks
+  ([n] (consecutive-ducks n (range 1 (inc (int (Math/ceil (/ n 2)))))))
+  ([n range]
+   (loop [slice-size 2]
+     (cond
+       (> slice-size (count range)) false
+       (> (count (filter (fn [values] (= (reduce + values) n)) (partition slice-size 1 range))) 0) true
+       :else (recur (inc slice-size))))))
