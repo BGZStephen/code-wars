@@ -24,4 +24,7 @@
 (ns clojure.collatz)
 
 (defn hotpo [n]
-  )
+  (loop [i 0 n n]
+    (if (= 1 n)
+      i
+      (recur (inc i) (if (even? n) (int (/ n 2)) (+ 1 (* n 3)))))))
