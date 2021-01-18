@@ -9,5 +9,9 @@
 (ns rentalcarcost.core)
 
 (defn rental-car-cost [d]
-  ; your code
+  (let [total (* d 40)]
+    (cond
+    (>= d 7) (- total 50)
+    (>= d 3) (- total 20)
+    :else total))
   )
