@@ -21,5 +21,5 @@
 (ns kata)
 
 (defn solve [xs ys]
-  
+  (map #(count (filter (fn [val] (= val %)) xs)) ys)
   )
