@@ -14,4 +14,22 @@
 
 (ns maxdifflength.core)
 
-(defn mxdiflg [a1 a2])
+(defn get-min
+  [values]
+  (->> values
+       (map #(.length %))
+       (reduce min)))
+
+(defn get-max
+  [values]
+  (->> values
+       (map #(.length %))
+       (reduce max)))
+
+(defn mxdiflg [a1 a2]
+  (if (or (= 0 (count a1)) (= 0 (count a2))) -1
+      (let [min-a (get-min a1)
+            max-a (get-max a1)
+            min-b (get-min a2)
+            max-b (get-max a2)]
+        (reduce max (filter #(> % 0) [(- max-a min-b) (- max-b min-a)])))))
