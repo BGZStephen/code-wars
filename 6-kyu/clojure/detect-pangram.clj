@@ -5,7 +5,16 @@
 (ns Pangram
   (:require [clojure.string :refer [lower-case]]))
 
+(defn get-unique-ascii
+  [s]
+    (->> (lower-case s)  
+       (map int)
+       set)
+  )
+
 (defn pangram?
   [s]
-  ; TODO
+  (let [ascii-chars (get-unique-ascii s)]
+    ascii-chars
+    (every? true? (map #(contains? ascii-chars %) (range 97 123))))
   )
