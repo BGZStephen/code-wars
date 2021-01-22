@@ -9,8 +9,9 @@
 
 ;; Assertion messages may be unclear about what they display in some languages. If you read "...It Should encode XXX", the "XXX" is the expected result, not the input!
 
-(ns kata.core)
+(ns kata.core
+  (:require [clojure.string :as string]))
 
 (defn encode-dups [text]
-   ; Your brilliant code here :)
-  )
+   (let [freqs (frequencies (.toLowerCase text))]
+     (string/join "" (map #(if (= 1 (freqs %)) "(" ")") (.toLowerCase text)))))
