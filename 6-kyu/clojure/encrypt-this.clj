@@ -28,7 +28,7 @@
   (let [first-letter (first text)
         second-letter (first (rest text))
         last-letter (last text)]
-    (if (nil? second-letter) text
+    (if (or (nil? second-letter) (nil? first-letter) (= 2 (.length text))) text
         (str first-letter last-letter (subs text 2 (dec (.length text))) second-letter))))
 
 (defn encrypt-this
@@ -40,3 +40,4 @@
 
 (println (encrypt-this "Hello"))
 (println (encrypt-this "hello world"))
+(println (encrypt-this "A wise old owl lived in an oak"))
