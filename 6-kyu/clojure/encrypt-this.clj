@@ -16,6 +16,27 @@
 ; (= (encrypt-this "good" ) "103doo")
 ; (= (encrypt-this "hello world") "104olle 119drlo")
 
-(ns kata.core)
+(ns kata.core
+  (:require [clojure.string :as str]))
 
-(defn encrypt-this [text] ())
+(defn first-letter-to-ascii
+  [text]
+  (str (int (first text)) (str/join "" (rest text))))
+
+(defn swap-second-and-last-letter
+  [text]
+  (let [first-letter (first text)
+        second-letter (first (rest text))
+        last-letter (last text)]
+    (if (nil? second-letter) text
+        (str first-letter last-letter (subs text 2 (dec (.length text))) second-letter))))
+
+(defn encrypt-this
+  [text]
+  (->> (str/split text #" ")
+       (map swap-second-and-last-letter)
+       (map first-letter-to-ascii)
+       (str/join " ")))
+
+(println (encrypt-this "Hello"))
+(println (encrypt-this "hello world"))
