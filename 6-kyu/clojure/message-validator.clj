@@ -12,5 +12,9 @@
 (ns message-validator.core)
 
 (defn valid-message? [msg]
-  ; TODO add your code here
-  )
+  (if (re-find #"^[A-Za-z]" msg) false
+      (every? true?
+              (->> msg
+                   (re-seq #"[A-Za-z]+|[^A-Za-z]+")
+                   (partition-all 2)
+                   (map (fn [[a b]] (= (.length (or b "")) (Integer/parseInt a))))))))
