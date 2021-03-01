@@ -11,5 +11,5 @@
 (ns kata.how-good-are-you)
 
 (defn better_than_average [class_points your_points]
-  (def total-points (conj class_points your_points))
-  (> your_points (/ (reduce + total-points) (count total-points)) ))
+  (let [total-points (conj class_points your_points)]
+    (> your_points (/ (reduce + total-points) (count total-points)))))
