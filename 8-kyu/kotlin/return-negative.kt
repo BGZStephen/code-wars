@@ -1,5 +1,9 @@
 class Kata {
   fun makeNegative(x: Int): Int {
-    return - x
+    return if (x < 0) {
+      x
+    } else {
+       - x
+    }
   }
 }
