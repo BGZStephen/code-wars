@@ -5,10 +5,7 @@
 ;; 348597 => [7,9,5,8,4,3]
 
 (ns digitizer.core
-    (:require [clojure.string :as str]))
+  (:require [clojure.string :as str]))
 
 (defn digitize [n]
-  (reverse (map #(Integer/parseInt %) (str/split (str n) #"")))
-  )
-
-(println (digitize 123456))
+  (reverse (map #(Integer/parseInt %) (str/split (str n) #""))))
