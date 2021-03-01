@@ -15,4 +15,4 @@
 (ns kata)
 
 (defn count-sheep [sheep]
-  (count (filter #(= true %) sheep)))
+  (count (filter true? sheep)))
