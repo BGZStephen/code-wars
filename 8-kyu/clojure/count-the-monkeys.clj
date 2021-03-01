@@ -8,6 +8,7 @@
 ; monkeyCount(1) // --> [1]
 
 (ns kata.monkey.count)
+
 (defn monkey-count [n]
   (into [] (range 1 (+ n 1)))
 )
