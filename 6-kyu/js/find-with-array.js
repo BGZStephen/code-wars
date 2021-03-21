@@ -8,3 +8,17 @@
 
 // var trueIfEven = function(value, index) { return (value % 2 === 0) };
 // findInArray([1,3,5,6,7], trueIfEven) // should === 3
+
+var findInArray = function(array, iterator) {
+  if (array && array.length === 0 || !iterator) { 
+    return - 1
+  }
+
+  for (const [index, value] of array.entries()) {
+    if (iterator(value, index)) {
+      return index
+    }
+  }
+
+  return -1
+};
