@@ -14,5 +14,3 @@ def abbrev_name(name):
     last_initial = split_name[1][0].upper()
 
     return f"{first_initial}.{last_initial}"
-
-print(abbrev_name("S Wright"))
