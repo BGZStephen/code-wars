@@ -29,3 +29,27 @@
 // mount_moose.how_many(['John', 'joHN', 'carl']) => 2
 // Good luck!
 
+class Song {
+  title;
+  artist;
+  listeners;
+
+  constructor(title, artist) {
+    this.title = title;
+    this.artist = artist;
+    this.listeners = [];
+  }
+
+  howMany(names) {
+    let count = 0;
+
+    for (const name of names) {
+      if (!this.listeners.includes(name.toLowerCase())) {
+        count += 1
+        this.listeners.push(name.toLowerCase())
+      }  
+    }
+
+    return count;
+  }
+}
