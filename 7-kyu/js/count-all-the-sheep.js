@@ -9,3 +9,7 @@
 // Example 2: Input: {3, 1, 2}, {4, 5}, 21 --> Output: 6
 
 // Good luck! :-)
+
+function lostSheep(friday,saturday,total){
+  return total - friday.reduce((acc, val) => acc + val, 0) - saturday.reduce((acc, val) => acc + val, 0)
+}
