@@ -5,3 +5,10 @@
 // [1, 1, 1, 0, 1] -> [3,1]
 // [1, 1, 1, 1, 1] -> [5]
 // [0, 0, 0, 0, 0] -> []
+
+function onesCounter(input) {
+  return input.join("")
+    .split("0")
+    .filter((string) => string.length > 0)
+    .map(string => string.length)
+}
