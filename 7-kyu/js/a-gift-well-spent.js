@@ -12,3 +12,15 @@
 // The indices start at 0. The first index should always be smaller than the second index. If there are multiple solutions, return the minimum (lexicographically):
 
 // buy(5,[1,2,3,4,5]) = [0,3] // the values at [1,2] also adds up to five, but [0,3] < [1,2]
+
+var buy = function(x, arr){
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j <= arr.length - 1; j++) {
+      if (arr[i] + arr[j] === x) {
+        return [i, j]
+      }
+    }
+  }
+
+  return null
+};
