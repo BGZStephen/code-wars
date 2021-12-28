@@ -4,3 +4,11 @@
 // Returm null if the argument is invalid.
 
 // maxRedigit(123) --> 321
+
+var maxRedigit = function(num) {
+  if (num.toString().length !== 3) {
+    return null;
+  }
+  
+  return parseInt(num.toString().split("").sort().reverse().join(""));
+};
