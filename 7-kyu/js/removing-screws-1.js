@@ -37,3 +37,20 @@
 
 // total time = 36 seconds 
 
+function sc(screws){
+  let time = 0;
+
+  for (const [index, screw] of screws.split("").entries()) {
+    if (index !== 0) {
+      time += 1; // move to the next screw
+
+      if (screw !== screws[index - 1]) {
+        time += 5; // change screwdriver
+      }
+    }
+
+    time += 1 // remove the screw
+  }
+
+  return time;
+}
