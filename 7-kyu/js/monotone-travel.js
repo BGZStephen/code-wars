@@ -17,3 +17,12 @@
 // isMonotone([])     == True
 // Such a sequence is also called monotone or monotonic sequence, hence the name isMonotone.
 
+var isMonotone = function(arr){
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i - 1] > arr[i]) {
+      return false;
+    }
+  }
+
+  return true;
+}
