@@ -12,13 +12,5 @@
 //                                        #  9+3 = 12  -->  2
 
 function incrementer(nums) { 
-  return nums.map((number, index) => {
-    let res = number + index + 1;
-    
-    while (res >= 10) {
-      res -= 10;
-    }
-    
-    return res;
-  })
+  return nums.map((number, index) => (number + index + 1) % 10)
 }
