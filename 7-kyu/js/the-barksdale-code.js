@@ -15,3 +15,25 @@
 
 // Write a function called decode(). Given an encoded string of exactly 10 digits, return the actual phone number in string form. Don't worry about input validation, parenthesis, or hyphens.
 
+function decode(string) {
+  const map = {
+    "1": "9",
+    "2": "8",
+    "3": "7",
+    "4": "6",
+    "5": "0",
+    "6": "4",
+    "7": "3",
+    "8": "2",
+    "9": "1",
+    "0": "5",
+  }
+  
+  let res = "";
+  
+  for (const letter of string) {
+    res += map[letter]
+  }
+  
+  return res
+}
