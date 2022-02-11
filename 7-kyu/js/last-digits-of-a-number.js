@@ -15,3 +15,18 @@
 // N = 637547
 // D = 6
 // result = [6, 3, 7, 5, 4, 7]
+
+function lastDigit(n, d) {
+  const splitNumber = n.toString().split("").map(str => parseInt(str))
+  const res = [];
+  
+  if (d <= 0) {
+    return res;
+  }
+  
+  while (splitNumber.length > d) {
+    splitNumber.splice(0, 1)
+  }
+  
+  return splitNumber
+}
