@@ -38,3 +38,17 @@
 // We need to keep doing this until the sum becomes greater or equal to K (464 in this case), which will require 8 Steps .
 
 // Expected Time Complexity O(n Log n)
+
+function minimumSteps(numbers, value){
+  let count = 0;
+  let sum = 0;
+  for (const number of numbers.sort((a, b) => a - b)) {
+    sum += number;
+    
+    if (sum >= value) {
+      return count;
+    }
+    
+    count += 1;
+  }
+}
