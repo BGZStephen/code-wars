@@ -12,3 +12,39 @@
 // Examples:
 //   battle("One", "Two"); // => "Two"`
 //   battle("ONE", "NEO"); // => "Tie!"
+
+function battle(x, y) {
+  let xScore = 0;
+  let yScore = 0;
+
+  for (const character of x) {
+    if (character === character.toUpperCase()) {
+      xScore += character.charCodeAt(0) - 64
+    } else {
+      xScore += (character.toUpperCase().charCodeAt(0) - 64) / 2
+    }
+  }
+
+  for (const character of y) {
+    if (character === character.toUpperCase()) {
+      yScore += character.charCodeAt(0) - 64
+    } else {
+      yScore += (character.toUpperCase().charCodeAt(0) - 64) / 2
+    }
+  }
+
+  if (xScore > yScore) {
+    return x
+  }
+
+  if (yScore > xScore) {
+    return y
+  }
+
+  return "Tie!"
+}
+
+// console.log(battle("One", "Two"))
+console.log(battle("One", "Neo"))
+// console.log(battle("One", "neO"))
+// console.log(battle("Four", "Five"))
