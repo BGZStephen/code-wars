@@ -15,3 +15,60 @@
 // Input - N - integer greater than 2 - number of chairs. Output should positive integer too - last patient's chair's number
 
 // Have fun :)
+
+function lastChair(numberOfChairs){
+  let chairs = new Array(numberOfChairs).fill(null, 0, numberOfChairs)
+  chairs[0] = 1;
+
+  for (let i = 2; i <= numberOfChairs; i++) {
+    const nextPositionToOccupy = determineNextPosition(chairs)
+    chairs[nextPositionToOccupy] = i;
+  }
+
+  return chairs.indexOf(numberOfChairs) + 1
+}
+
+function determineNextPosition(chairs) {
+  let temporaryLargestGap = 0;
+  let largestGap = 0;
+  let position = 0;
+
+  for (const [index, chair] of chairs.entries()) {
+    if (!chair) {
+      temporaryLargestGap += 1;
+    }
+
+    if (chair) {
+      if (largestGap < temporaryLargestGap) {
+        largestGap = temporaryLargestGap
+      }
+
+      position = index - largestGap;
+      temporaryLargestGap = 0;
+    }
+
+    if (index === chairs.length -1 && largestGap < temporaryLargestGap) {
+      position = index;
+      largestGap = temporaryLargestGap;
+    }
+  }
+
+  return position;
+}
+
+function test() {
+  let failingTests = false;
+  const test1Res = lastChair(10);
+
+  if (test1Res !== 9) {
+    console.log(`Expected ${9}, got ${test1Res}`)
+  }
+
+  if (failingTests) {
+    process.exit(1)
+  }
+
+  process.exit(0)
+}
+
+test()
