@@ -3,3 +3,7 @@
 // You can not use multiplier "*" operator.
 
 // If your name would be Jeong-Ho Aristotelis, ad would cost £600. 20 leters * 30 = 600 (Space counts as a letter).
+
+function billboard(name, price = 30) {
+    return name.split("").reduce((acc, _) => acc + price, 0)
+} 
