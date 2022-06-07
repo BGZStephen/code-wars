@@ -15,7 +15,7 @@ function vowelIndices(word){
   const res = [];
   
   for (const [index, letter] of word.split("").entries()) {
-    if (letter.match(/[aeiouAEIOU]/)) {
+    if (letter.match(/[aeiouyAEIOUY]/)) {
       res.push(index + 1)
     }
   }
