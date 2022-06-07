@@ -10,3 +10,15 @@
 // NOTES
 // Vowels in this context refers to: a e i o u y (including upper case)
 // This is indexed from [1..n] (not zero indexed!)
+
+function vowelIndices(word){
+  const res = [];
+  
+  for (const [index, letter] of word.split("").entries()) {
+    if (letter.match(/[aeiouAEIOU]/)) {
+      res.push(index + 1)
+    }
+  }
+  
+  return res;
+}
