@@ -13,3 +13,13 @@
 
 // chain(2, [add, mult]);
 // // returns 90;
+
+function chain(input, fs) {
+  let res = input;
+
+  for (const func of fs) {
+    res = func(res)
+  }
+
+  return res;
+}
