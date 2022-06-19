@@ -7,3 +7,9 @@
 
 // Notes
 // String str will never be null.
+
+use regex::Regex;
+
+fn replace_dots(s: &str) -> String {
+    Regex::new(r"\.").unwrap().replace_all(s, "-").to_string()
+}
