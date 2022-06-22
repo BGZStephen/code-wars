@@ -9,3 +9,21 @@
 
 // More examples in test cases.
 
+function moonRating(rating) {
+  let res = "";
+  
+  for (let i = 0; i < 5; i++) {
+    if (rating < 0.5) {
+      res += 'x'
+      rating = 0;
+    } else if (rating < 1.5) {
+      res += 'c';
+      rating = 0;
+    } else {
+      res += 'o';
+      rating -= 2;
+    }
+  }
+  
+  return res;
+}
