@@ -11,3 +11,23 @@
 // For this kata, the vowels are 'a', 'e', 'i', 'o', 'u', in that order. y is not considered a vowel in this kata.
 
 // Good luck!
+
+function getTheVowels(word) {
+  let vowels = ['a', 'e', 'i', 'o', 'u'];
+  let nextVowelIndex = 0;
+  let consecutiveVowelCount = 0;
+
+  for (const letter of word) {
+    if (letter === vowels[nextVowelIndex]) {
+      consecutiveVowelCount += 1;
+
+      if (nextVowelIndex + 1 === vowels.length) {
+        nextVowelIndex = 0;
+      } else {
+        nextVowelIndex += 1;
+      }
+    }
+  }
+
+  return consecutiveVowelCount;
+}
