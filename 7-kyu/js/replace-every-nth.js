@@ -20,3 +20,27 @@
 // "Vader soid: No, I am your fother!"
 // As you can see in the example: The first changed is the 2nd 'a'. So the start is always at the nth suitable char and not at the first!
 
+function replaceNth(text, n, oldValue, newValue) {
+  if (n < 0 || n > text.length) {
+    return text;
+  };
+
+  const splitString = text.split("")
+
+  let currentPosition = 1;
+
+  for (let i = 0; i < splitString.length; i++) {
+    if (splitString[i] === oldValue && currentPosition === n) {
+      splitString[i] = newValue;
+      currentPosition = 1;
+      continue;
+    }
+
+    if (splitString[i] === oldValue && currentPosition !== n) {
+      currentPosition += 1;
+    }
+
+  }
+
+  return splitString.join("");
+}
