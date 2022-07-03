@@ -13,20 +13,20 @@ function consecutiveOnes(nums) {
   if (!nums.includes(1)) {
     return 0;
   }
-  
+
   let res = 1;
-  
+
   const matching = nums.join("").match(/1+1/g);
-  
+
   if (!matching) {
     return res;
   }
 
-  const consecutives = matching.sort()[matching.length - 1]  
-  
+  const consecutives = matching.sort()[matching.length - 1];
+
   if (!consecutives) {
     return res;
   }
-  
-  return consecutives.length
-};
+
+  return consecutives.length;
+}

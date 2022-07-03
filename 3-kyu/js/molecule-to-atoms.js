@@ -27,13 +27,13 @@ function parseMolecule(formula) {
     if (startSeparators.indexOf(splitFormula[i]) > -1) {
       let endIndex = 1;
       // find the end of the sub formula
-      while (startSeparators.indexOf(splitFormula[endIndex] === -1) {
+      while (startSeparators.indexOf(splitFormula[endIndex] === -1)) {
         endIndex += 1;
       }
 
       // check if there is a number after a closing bracket, if so, use as multiplier
       let numberIndex = endIndex + 1;
-      while (startSeparators.indexOf(numbers[numbers] > -1) {
+      while (startSeparators.indexOf(numbers[numbers] > -1)) {
 
       }
       // check if next items are numbers, if so, multiply

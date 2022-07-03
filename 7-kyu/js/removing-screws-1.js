@@ -17,7 +17,7 @@
 // screws: "---+++"
 //          ABCDEF
 
-// remove A (1) + move to B (1) + remove B (1) + 
+// remove A (1) + move to B (1) + remove B (1) +
 // move to C (1) + remove C (1) + move to D (1) +
 // switch screwdriver (5) + remove D (1) +
 // move to E (1) + remove E (1) + move to F (1) + remove F (1)
@@ -35,9 +35,9 @@
 // move to E (1) + switch screwdriver (5) + remove E (1) +
 // move to F (1) + switch screwdriver (5) + remove F (1)
 
-// total time = 36 seconds 
+// total time = 36 seconds
 
-function sc(screws){
+function sc(screws) {
   let time = 0;
 
   for (const [index, screw] of screws.split("").entries()) {
@@ -49,7 +49,7 @@ function sc(screws){
       }
     }
 
-    time += 1 // remove the screw
+    time += 1; // remove the screw
   }
 
   return time;

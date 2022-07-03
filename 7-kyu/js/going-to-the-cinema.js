@@ -1,7 +1,7 @@
 // My friend John likes to go to the cinema. He can choose between system A and system B.
 
 // System A : he buys a ticket (15 dollars) every time
-// System B : he buys a card (500 dollars) and a first ticket for 0.90 times the ticket price, 
+// System B : he buys a card (500 dollars) and a first ticket for 0.90 times the ticket price,
 // then for each additional ticket he pays 0.90 times the price paid for the previous ticket.
 // #Example: If John goes to the cinema 3 times:
 
@@ -14,9 +14,9 @@
 // ceil(price of System B) < price of System A.
 // More examples:
 
-// movie(500, 15, 0.9) should return 43 
+// movie(500, 15, 0.9) should return 43
 //     (with card the total price is 634, with tickets 645)
-// movie(100, 10, 0.95) should return 24 
+// movie(100, 10, 0.95) should return 24
 //     (with card the total price is 235, with tickets 240)
 
 function movie(card, ticket, perc) {
@@ -24,7 +24,7 @@ function movie(card, ticket, perc) {
   let cardTicketPrice = ticket * perc;
   let totalTicketPrice = ticket;
   let totalCardPrice = card + cardTicketPrice;
-  let roundedTotalCardPrice = Math.ceil(totalCardPrice)
+  let roundedTotalCardPrice = Math.ceil(totalCardPrice);
 
   while (roundedTotalCardPrice >= totalTicketPrice) {
     cardTicketPrice *= perc;
@@ -35,4 +35,4 @@ function movie(card, ticket, perc) {
   }
 
   return ticketCount;
-};
+}

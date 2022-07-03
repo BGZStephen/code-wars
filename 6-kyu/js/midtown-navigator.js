@@ -13,22 +13,24 @@
 // midtownNav("5th Ave and W 46th St", "7th Ave and E 58th St") // output => "Walk 12 blocks north, and 2 blocks west"
 // Note: When the avenues are same, the direction of movement should be west and when the streets are same the direction should be north.
 
-function midtownNav(start,end) {
-  const startAvenue = start.match(/^[0-9]{0,3}/)[0]
-  const endAvenue = end.match(/^[0-9]{0,3}/)[0]
+function midtownNav(start, end) {
+  const startAvenue = start.match(/^[0-9]{0,3}/)[0];
+  const endAvenue = end.match(/^[0-9]{0,3}/)[0];
 
-  const startStreet = start.match(/[EW] [0-9]{0,3}/)[0].replace(/[EW] /, '')
-  const endStreet = end.match(/[EW] [0-9]{0,3}/)[0].replace(/[EW] /, '')
+  const startStreet = start.match(/[EW] [0-9]{0,3}/)[0].replace(/[EW] /, "");
+  const endStreet = end.match(/[EW] [0-9]{0,3}/)[0].replace(/[EW] /, "");
 
-  const northOrSouth  = endStreet >= startStreet ? 'north' : 'south'
-  const westOrEast = endAvenue >= startAvenue ? 'west' : 'east'
+  const northOrSouth = endStreet >= startStreet ? "north" : "south";
+  const westOrEast = endAvenue >= startAvenue ? "west" : "east";
 
-  const blocksHorizontal = startAvenue > endAvenue ? startAvenue - endAvenue : endAvenue - startAvenue
-  const blocksVertical = startStreet > endStreet ? startStreet - endStreet : endStreet - startStreet
-  
-  return `Walk ${blocksVertical} blocks ${northOrSouth}, and ${blocksHorizontal} blocks ${westOrEast}`
+  const blocksHorizontal =
+    startAvenue > endAvenue ? startAvenue - endAvenue : endAvenue - startAvenue;
+  const blocksVertical =
+    startStreet > endStreet ? startStreet - endStreet : endStreet - startStreet;
+
+  return `Walk ${blocksVertical} blocks ${northOrSouth}, and ${blocksHorizontal} blocks ${westOrEast}`;
 }
 
 // console.log(midtownNav("8th Ave and W 38th St", "7th Ave and W 36th St"))
 // console.log(midtownNav("5th Ave and W 46th St", "7th Ave and E 58th St"))
-console.log(midtownNav("5th Ave and W 45th St", "6th Ave and W 40th St"))
+console.log(midtownNav("5th Ave and W 45th St", "6th Ave and W 40th St"));

@@ -9,25 +9,25 @@
 
 const permutations = (string) => {
   if (!string || typeof string !== "string") {
-    return []
-  } else if (string.length < 2 ){
-    return [string]
+    return [];
+  } else if (string.length < 2) {
+    return [string];
   }
 
-  const permutationsArray = [] 
-   
-  for (let i = 0; i < string.length; i++){
-    let char = string[i]
+  const permutationsArray = [];
 
-    if (string.indexOf(char) !== i) 
-    continue
+  for (let i = 0; i < string.length; i++) {
+    let char = string[i];
 
-    let remainingChars = string.slice(0, i) + string.slice(i + 1, string.length)
+    if (string.indexOf(char) !== i) continue;
 
-    for (let permutation of permutations(remainingChars)){
-      permutationsArray.push(char + permutation) 
+    let remainingChars =
+      string.slice(0, i) + string.slice(i + 1, string.length);
+
+    for (let permutation of permutations(remainingChars)) {
+      permutationsArray.push(char + permutation);
     }
   }
 
-  return permutationsArray
-}
+  return permutationsArray;
+};

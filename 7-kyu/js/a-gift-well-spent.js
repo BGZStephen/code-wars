@@ -13,14 +13,14 @@
 
 // buy(5,[1,2,3,4,5]) = [0,3] // the values at [1,2] also adds up to five, but [0,3] < [1,2]
 
-var buy = function(x, arr){
+var buy = function (x, arr) {
   for (let i = 0; i < arr.length; i++) {
     for (let j = i + 1; j < arr.length; j++) {
       if (arr[i] + arr[j] === x) {
-        return [i, j]
+        return [i, j];
       }
     }
   }
 
-  return null
+  return null;
 };

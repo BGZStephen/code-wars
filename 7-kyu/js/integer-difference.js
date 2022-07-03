@@ -25,10 +25,10 @@ const intDiff = (arr, n) => {
           count += 1;
         }
       }
-    } 
+    }
   }
 
   return count / 2;
-}
+};
 
-intDiff([1, 1, 3, 3], 2)
+intDiff([1, 1, 3, 3], 2);

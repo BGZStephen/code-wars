@@ -18,13 +18,13 @@
 function findNumber(array) {
   array = array.sort((a, b) => a - b);
 
-  if (!array || array.length === 0) { 
-    return 1
+  if (!array || array.length === 0) {
+    return 1;
   }
 
   for (let i = 0; i < array.length; i++) {
     if (i === 0 && array[0] !== 1) {
-      return 1
+      return 1;
     }
 
     if (array[i] + 1 !== array[i + 1]) {

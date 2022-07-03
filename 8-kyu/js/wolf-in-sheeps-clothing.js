@@ -17,9 +17,11 @@
 function warnTheSheep(queue) {
   queue = queue.reverse();
 
-  if (queue[0] === 'wolf') {
-    return 'Pls go away and stop eating my sheep'
+  if (queue[0] === "wolf") {
+    return "Pls go away and stop eating my sheep";
   }
 
-  return `Oi! Sheep number ${queue.indexOf('wolf')}! You are about to be eaten by a wolf!`
+  return `Oi! Sheep number ${queue.indexOf(
+    "wolf"
+  )}! You are about to be eaten by a wolf!`;
 }

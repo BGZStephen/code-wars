@@ -5,6 +5,6 @@
 // area_or_perimeter(4, 4) --> 16
 // Note: for the purposes of this kata you will assume that it is a square if its length and width are equal, otherwise it is a rectangle.
 
-const areaOrPerimeter = function(l , w) {
-  return l === w ? l * w : (l * 2 + w * 2)
+const areaOrPerimeter = function (l, w) {
+  return l === w ? l * w : l * 2 + w * 2;
 };

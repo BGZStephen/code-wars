@@ -14,11 +14,11 @@ function validateWord(s) {
 
   for (const letter of s.toLowerCase()) {
     if (map[letter]) {
-      map[letter] += 1
+      map[letter] += 1;
     } else {
-      map[letter] = 1
+      map[letter] = 1;
     }
   }
 
-  return Object.values(map).every((val, index, arr) => val === arr[0])
+  return Object.values(map).every((val, index, arr) => val === arr[0]);
 }

@@ -10,6 +10,10 @@
 
 // Good luck! :-)
 
-function lostSheep(friday,saturday,total){
-  return total - friday.reduce((acc, val) => acc + val, 0) - saturday.reduce((acc, val) => acc + val, 0)
+function lostSheep(friday, saturday, total) {
+  return (
+    total -
+    friday.reduce((acc, val) => acc + val, 0) -
+    saturday.reduce((acc, val) => acc + val, 0)
+  );
 }

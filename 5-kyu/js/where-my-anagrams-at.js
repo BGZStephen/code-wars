@@ -24,19 +24,30 @@ anagrams('laser', ['lazing', 'lazy',  'lacer']) => []
 
 function anagrams(word, words) {
   let anagrams = [];
-  const arrangedWord = word.split('').sort(function(a, b) {
-    return a  > b;
-  }).join('').replace(',', '')
+  const arrangedWord = word
+    .split("")
+    .sort(function (a, b) {
+      return a > b;
+    })
+    .join("")
+    .replace(",", "");
 
-  words.forEach(function(word) {
-    if (arrangedWord === word.split('').sort(function(a, b) {
-      return a  > b;
-    }).join('').replace(',', '')) {
-      anagrams.push(word)
+  words.forEach(function (word) {
+    if (
+      arrangedWord ===
+      word
+        .split("")
+        .sort(function (a, b) {
+          return a > b;
+        })
+        .join("")
+        .replace(",", "")
+    ) {
+      anagrams.push(word);
     }
-  })
+  });
 
-  return anagrams
+  return anagrams;
 }
 
-anagrams('laser', ['lazing', 'lazy',  'lacer'])
+anagrams("laser", ["lazing", "lazy", "lacer"]);

@@ -28,19 +28,19 @@ There is no ranking for the suits.
 
 */
 
-var Result = { "win": 1, "loss": 2, "tie": 3 }
+var Result = { win: 1, loss: 2, tie: 3 };
 
 const HAND_RANKS = {
-  'straight-flush':  1,
-  'four-of-a-kind': 2,
-  'full-house': 3,
-  'flush': 4,
-  'straight': 5,
-  'three-of-a-kind': 6,
-  'two-pair': 7,
-  'one-pair': 8,
-  'high-card': 9,
-}
+  "straight-flush": 1,
+  "four-of-a-kind": 2,
+  "full-house": 3,
+  flush: 4,
+  straight: 5,
+  "three-of-a-kind": 6,
+  "two-pair": 7,
+  "one-pair": 8,
+  "high-card": 9,
+};
 
 const CARD_VALUES = {
   2: 2,
@@ -56,21 +56,20 @@ const CARD_VALUES = {
   Q: 12,
   K: 13,
   A: 14,
-}
-
+};
 
 function PokerHand(hand) {
-  this.handValue = hand
-  hand = hand.split(' ').sort(function (a, b) {
-    return CARD_VALUES[a[0]] > CARD_VALUES[b[0]]
-  })
+  this.handValue = hand;
+  hand = hand.split(" ").sort(function (a, b) {
+    return CARD_VALUES[a[0]] > CARD_VALUES[b[0]];
+  });
 
   const handSuits = {
     S: 0,
     H: 0,
     C: 0,
     D: 0,
-  }
+  };
 
   const handValues = {
     2: 0,
@@ -86,47 +85,50 @@ function PokerHand(hand) {
     Q: 0,
     K: 0,
     A: 0,
-  }
+  };
 
   hand.forEach(function (card) {
-    handSuits[card[1]] += 1
-  })
+    handSuits[card[1]] += 1;
+  });
 
   hand.forEach(function (card) {
-    handValues[card[0]] += 1
-  })
+    handValues[card[0]] += 1;
+  });
 
   Object.values(handSuits).forEach(function (suit) {
     if (suit === 5) {
-      const straightFlushCheck = checkStraight()
+      const straightFlushCheck = checkStraight();
       if (straightFlushCheck) {
-        console.log(HAND_RANKS['straight-flush'])
-        this.handRank = HAND_RANKS['straight-flush']
+        console.log(HAND_RANKS["straight-flush"]);
+        this.handRank = HAND_RANKS["straight-flush"];
         return;
       }
-      console.log(HAND_RANKS['flush'])
-      this.handRank = HAND_RANKS['flush']
+      console.log(HAND_RANKS["flush"]);
+      this.handRank = HAND_RANKS["flush"];
       return;
     }
-  })
+  });
 
   Object.values(handValues).forEach(function (value) {
     if (value === 4) {
-      console.log(HAND_RANKS['four-of-a-kind'])
-      this.handRank = HAND_RANKS['four-of-a-kind']
+      console.log(HAND_RANKS["four-of-a-kind"]);
+      this.handRank = HAND_RANKS["four-of-a-kind"];
       return;
     }
-  })
+  });
 
   const sortedhandValues = Object.values(handValues).sort();
 
-  if (sortedhandValues.indexOf(3) !== -1 && sortedhandValues.indexOf(2) !== -1) {
-    console.log(HAND_RANKS['full-house']);
-    this.handRank = HAND_RANKS['full-house'];
+  if (
+    sortedhandValues.indexOf(3) !== -1 &&
+    sortedhandValues.indexOf(2) !== -1
+  ) {
+    console.log(HAND_RANKS["full-house"]);
+    this.handRank = HAND_RANKS["full-house"];
     return;
   } else if (sortedhandValues.indexOf(3) !== -1) {
-    console.log(HAND_RANKS['three-of-a-kind']);
-    this.handRank = HAND_RANKS['three-of-a-kind'];
+    console.log(HAND_RANKS["three-of-a-kind"]);
+    this.handRank = HAND_RANKS["three-of-a-kind"];
     return;
   }
 
@@ -136,46 +138,49 @@ function PokerHand(hand) {
     if (value === 2) {
       numberOfPairs += 1;
     }
-  })
+  });
 
   if (numberOfPairs === 2) {
-    console.log(HAND_RANKS['two-pair']);
-    this.handRank = HAND_RANKS['two-pair'];
+    console.log(HAND_RANKS["two-pair"]);
+    this.handRank = HAND_RANKS["two-pair"];
     return;
   } else if (numberOfPairs === 1) {
-    console.log(HAND_RANKS['one-pair']);
-    this.handRank = HAND_RANKS['one-pair'];
+    console.log(HAND_RANKS["one-pair"]);
+    this.handRank = HAND_RANKS["one-pair"];
     return;
   } else {
-    this.handRank = HAND_RANKS['high-card'];
+    this.handRank = HAND_RANKS["high-card"];
     return;
   }
 
   function checkStraight() {
-    let sequence = 1
-    for (let i = 0; i < playerHand.length -1; i++) {
-      if (CARD_VALUES[playerHand[i][0]] + 1 === CARD_VALUES[playerHand[i + 1][0]]) {
-        sequence += 1
+    let sequence = 1;
+    for (let i = 0; i < playerHand.length - 1; i++) {
+      if (
+        CARD_VALUES[playerHand[i][0]] + 1 ===
+        CARD_VALUES[playerHand[i + 1][0]]
+      ) {
+        sequence += 1;
       }
     }
-    return sequence === 5 ? true : false
+    return sequence === 5 ? true : false;
   }
 }
 
-PokerHand.prototype.compareWith = function(hand){
+PokerHand.prototype.compareWith = function (hand) {
   if (this.handRank > hand.handRank) {
-    return Result.win
+    return Result.win;
   } else if (this.handRank < hand.handRank) {
-    return Result.loss
+    return Result.loss;
   } else {
     return Result.tie;
   }
+};
+
+function assert(expected, player, opponent) {
+  var p = new PokerHand(player);
+  var o = new PokerHand(opponent);
+  console.log(p.compareWith(o));
 }
 
-function assert(expected, player, opponent){
-	var p = new PokerHand(player);
-	var o = new PokerHand(opponent);
-	console.log(p.compareWith(o))
-}
-
-assert(Result.tie, "2S AH 4H 5S 6C", "AD 4C 5H 6H 2C")
+assert(Result.tie, "2S AH 4H 5S 6C", "AD 4C 5H 6H 2C");

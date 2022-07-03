@@ -6,5 +6,5 @@
 // * Return ['quick', 'brown', 'jumps']
 
 function filterLongWords(sentence, n) {
-  return sentence.split(" ").filter(word => word.length > n)
+  return sentence.split(" ").filter((word) => word.length > n);
 }

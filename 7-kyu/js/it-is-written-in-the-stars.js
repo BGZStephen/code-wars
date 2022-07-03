@@ -18,61 +18,61 @@
 
 function starSign(date) {
   const signs = {
-    "Aquarius": {
+    Aquarius: {
       startDate: new Date("2000-01-21"),
       endDate: new Date("2000-02-19T23:59:59"),
     },
-    "Pisces": {
+    Pisces: {
       startDate: new Date("2000-02-20"),
       endDate: new Date("2000-03-20T23:59:59"),
     },
-    "Aries": {
+    Aries: {
       startDate: new Date("2000-03-21"),
       endDate: new Date("2000-04-20T23:59:59"),
     },
-    "Taurus": {
+    Taurus: {
       startDate: new Date("2000-04-21"),
       endDate: new Date("2000-05-21T23:59:59"),
     },
-    "Gemini": {
+    Gemini: {
       startDate: new Date("2000-05-22"),
       endDate: new Date("2000-06-21T23:59:59"),
     },
-    "Cancer": {
+    Cancer: {
       startDate: new Date("2000-06-22"),
       endDate: new Date("2000-07-22T23:59:59"),
     },
-    "Leo": {
+    Leo: {
       startDate: new Date("2000-07-23"),
       endDate: new Date("2000-08-23T23:59:59"),
     },
-    "Virgo": {
+    Virgo: {
       startDate: new Date("2000-08-24"),
       endDate: new Date("2000-09-23T23:59:59"),
     },
-    "Libra": {
+    Libra: {
       startDate: new Date("2000-09-24"),
       endDate: new Date("2000-10-23T23:59:59"),
     },
-    "Scorpio": {
+    Scorpio: {
       startDate: new Date("2000-10-24"),
       endDate: new Date("2000-11-22T23:59:59"),
     },
-    "Sagittarius": {
+    Sagittarius: {
       startDate: new Date("2000-11-23"),
       endDate: new Date("2000-12-21T23:59:59"),
-    }
-  }
+    },
+  };
 
-  date.setFullYear(2000)
+  date.setFullYear(2000);
 
   for (const starSign of Object.keys(signs)) {
     if (date <= signs[starSign].endDate && date >= signs[starSign].startDate) {
-      return starSign
+      return starSign;
     }
   }
 
-  return "Capricorn"
+  return "Capricorn";
 }
 
-console.log(starSign(new Date("2001-02-19T08:11:34.602Z")))
+console.log(starSign(new Date("2001-02-19T08:11:34.602Z")));

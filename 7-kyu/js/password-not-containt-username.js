@@ -11,20 +11,27 @@
 // Both the username and the password may contain uppercase letters, lowercase letters, numbers, spaces, and the following special/punctation characters: !@#$%^&*()_+{}:"<>?[];',.
 // The username and password will each be less than 100 characters.
 
-function validate(username, password){
-  if (username === password) { 
+function validate(username, password) {
+  if (username === password) {
     return false;
   }
 
-  const maxSubstringLength = username.length > password.length ? Math.ceil(password.length / 2) : Math.round(username.length / 2)
+  const maxSubstringLength =
+    username.length > password.length
+      ? Math.ceil(password.length / 2)
+      : Math.round(username.length / 2);
   const constraint = username.length > password.length ? username : password;
   const comparison = username.length > password.length ? password : username;
 
-  for (let i = 0, j = i + maxSubstringLength; j <= comparison.length; i += 1, j += 1) {
+  for (
+    let i = 0, j = i + maxSubstringLength;
+    j <= comparison.length;
+    i += 1, j += 1
+  ) {
     const subStr = comparison.substr(i, maxSubstringLength);
 
     if (constraint.includes(subStr)) {
-      return false
+      return false;
     }
   }
 

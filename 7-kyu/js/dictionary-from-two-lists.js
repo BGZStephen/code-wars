@@ -11,7 +11,7 @@
 // values = [1, 2, 3, 4]
 // createDict(keys, values) // returns {'a': 1, 'b': 2, 'c': 3}
 
-function createDict(keys, values){
+function createDict(keys, values) {
   const res = {};
 
   for (const [index, key] of keys.entries()) {

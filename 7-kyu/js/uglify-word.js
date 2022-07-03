@@ -27,15 +27,15 @@ function uglifyWord(s) {
   let flag = true;
   let res = [];
 
-  for (const char of s.split('')) {
+  for (const char of s.split("")) {
     if (char.match(/[a-zA-Z]/)) {
-      res.push(flag ? char.toUpperCase(): char.toLowerCase())
+      res.push(flag ? char.toUpperCase() : char.toLowerCase());
       flag = !flag;
     } else {
-      res.push(char)
+      res.push(char);
       flag = true;
     }
   }
 
-  return res.join('')
+  return res.join("");
 }

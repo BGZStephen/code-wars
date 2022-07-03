@@ -11,32 +11,35 @@
 function whatCentury(year) {
   const century = Math.ceil(parseInt(year) / 100);
 
-  if (String(century).endsWith('0')) {
-    return `${century}th`
+  if (String(century).endsWith("0")) {
+    return `${century}th`;
   }
 
-  if ((String(century).endsWith('2') || (String(century).endsWith('1'))) && String(century).startsWith('1')) {
-    return `${century}th`
+  if (
+    (String(century).endsWith("2") || String(century).endsWith("1")) &&
+    String(century).startsWith("1")
+  ) {
+    return `${century}th`;
   }
 
-  if (String(century).endsWith('3') && String(century).startsWith('1')) {
-    return `${century}th`
+  if (String(century).endsWith("3") && String(century).startsWith("1")) {
+    return `${century}th`;
   }
 
-  if (String(century).endsWith('1')) {
-    return `${century}st`
+  if (String(century).endsWith("1")) {
+    return `${century}st`;
   }
 
-  if (String(century).endsWith('2')) {
-    return `${century}nd`
+  if (String(century).endsWith("2")) {
+    return `${century}nd`;
   }
 
-  return `${century}rd`
+  return `${century}rd`;
 }
 
-console.log(whatCentury("1999"))
-console.log(whatCentury("2011"))
-console.log(whatCentury("2154"))
-console.log(whatCentury("2259"))
-console.log(whatCentury("1124"))
-console.log(whatCentury("2000"))
+console.log(whatCentury("1999"));
+console.log(whatCentury("2011"));
+console.log(whatCentury("2154"));
+console.log(whatCentury("2259"));
+console.log(whatCentury("1124"));
+console.log(whatCentury("2000"));

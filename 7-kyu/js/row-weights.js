@@ -20,21 +20,21 @@
 // Explanation:
 // The first element 80 is the total weight of team 1, and the second element 0 is the total weight of team 2.
 
-function rowWeights(array){
+function rowWeights(array) {
   let teamAWeights = 0;
   let teamBWeights = 0;
-  
+
   let nextPlayerToTeamA = true;
 
   for (const weight of array) {
     if (nextPlayerToTeamA) {
-      teamAWeights += weight
+      teamAWeights += weight;
     } else {
-      teamBWeights += weight
+      teamBWeights += weight;
     }
 
     nextPlayerToTeamA = !nextPlayerToTeamA;
   }
 
-  return [teamAWeights, teamBWeights]
+  return [teamAWeights, teamBWeights];
 }

@@ -26,11 +26,13 @@ function countSalutes(hallway) {
 
   for (let [index, value] of icons.entries()) {
     if (value === ">") {
-      res += icons.slice(index + 1, icons.length).filter(value => value === "<").length * 2;
+      res +=
+        icons.slice(index + 1, icons.length).filter((value) => value === "<")
+          .length * 2;
     }
   }
 
-  return res
+  return res;
 }
 
-console.log(countSalutes("<---<--->----<"))
+console.log(countSalutes("<---<--->----<"));

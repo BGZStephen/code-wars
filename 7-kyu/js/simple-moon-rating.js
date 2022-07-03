@@ -11,19 +11,19 @@
 
 function moonRating(rating) {
   let res = "";
-  
+
   for (let i = 0; i < 5; i++) {
     if (rating < 0.5) {
-      res += 'x'
+      res += "x";
       rating = 0;
     } else if (rating < 1.5) {
-      res += 'c';
+      res += "c";
       rating = 0;
     } else {
-      res += 'o';
+      res += "o";
       rating -= 2;
     }
   }
-  
+
   return res;
 }

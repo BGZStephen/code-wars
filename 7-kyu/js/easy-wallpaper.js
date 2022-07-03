@@ -18,12 +18,34 @@ all rolls (even with incomplete width) are put edge to edge
 the integer r (number of rolls) will always be less or equal to 20 */
 
 function wallpaper(l, w, h) {
-  const responses = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty']
-  const length = (l / .52 * (h / 10))
-  const width = (w / .52 * (h / 10))
-  
+  const responses = [
+    "zero",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+    "ten",
+    "eleven",
+    "twelve",
+    "thirteen",
+    "fourteen",
+    "fifteen",
+    "sixteen",
+    "seventeen",
+    "eighteen",
+    "nineteen",
+    "twenty",
+  ];
+  const length = (l / 0.52) * (h / 10);
+  const width = (w / 0.52) * (h / 10);
+
   if (!l || !w || !h) {
-    return 'zero';
+    return "zero";
   }
 
   return responses[Math.ceil((length + width) * 2 * 1.15)];

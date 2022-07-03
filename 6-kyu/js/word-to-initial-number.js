@@ -21,28 +21,28 @@ function convert(s) {
   if (!s || s.length === 0) {
     return 0;
   }
-  
+
   let res = ``;
-  
+
   const uniqueCharacters = {
     [s[0].toLowerCase()]: {
       value: 1,
-    }
+    },
   };
 
   const remainingValues = [0, 2, 3, 4, 5, 6, 7, 8, 9];
 
-  for (const char of s.split('').filter(char => char)) {
+  for (const char of s.split("").filter((char) => char)) {
     if (!uniqueCharacters[char.toLowerCase()]) {
-      const minValue = Math.min.apply(Math, remainingValues)
+      const minValue = Math.min.apply(Math, remainingValues);
       uniqueCharacters[char.toLowerCase()] = {
-        value: minValue
-      }
+        value: minValue,
+      };
 
-      remainingValues.splice(remainingValues.indexOf(minValue), 1)
-      res += `${minValue}`
+      remainingValues.splice(remainingValues.indexOf(minValue), 1);
+      res += `${minValue}`;
     } else {
-      res += `${uniqueCharacters[char.toLowerCase()].value}`
+      res += `${uniqueCharacters[char.toLowerCase()].value}`;
     }
   }
 

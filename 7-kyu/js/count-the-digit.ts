@@ -1,13 +1,18 @@
 export class G964 {
   public static nbDig(n: number, d: number): number {
-          const squared = [];
+    const squared = [];
 
     for (let i = 0; i <= n; i++) {
-      squared.push(Math.pow(i, 2))
+      squared.push(Math.pow(i, 2));
     }
 
-    return squared.map(value => value.toString()).join("").match(new RegExp(d.toString(), "g"))?.length || 0
+    return (
+      squared
+        .map((value) => value.toString())
+        .join("")
+        .match(new RegExp(d.toString(), "g"))?.length || 0
+    );
   }
 }
 
-G964.nbDig(15, 1)
+G964.nbDig(15, 1);

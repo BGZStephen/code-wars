@@ -16,7 +16,7 @@
 function mirror(data) {
   let res = [...data];
   res.sort((a, b) => a - b);
-  res = res.concat(res.slice(0, res.length - 1).reverse())
+  res = res.concat(res.slice(0, res.length - 1).reverse());
 
   return res;
 }

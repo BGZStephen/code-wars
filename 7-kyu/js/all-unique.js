@@ -2,6 +2,6 @@
 
 // The string may contain any of the 128 ASCII characters. Characters are case-sensitive, e.g. 'a' and 'A' are considered different characters.
 
-function hasUniqueChars(str){
-  return str.length === new Set(str.split("")).size
+function hasUniqueChars(str) {
+  return str.length === new Set(str.split("")).size;
 }

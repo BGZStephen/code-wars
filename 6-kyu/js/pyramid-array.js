@@ -10,10 +10,10 @@ function pyramid(n) {
   const res = [];
 
   for (let i = 1; i <= n; i++) {
-    res.push(new Array(i).fill(1))
+    res.push(new Array(i).fill(1));
   }
 
   return res;
 }
 
-console.log(pyramid(3))
+console.log(pyramid(3));

@@ -9,17 +9,17 @@
 // capital X's do not count as an occurrence of "x".
 // if there are no "x"'s then return false
 
-function tripleX(str){
-  const chars = str.split('')
+function tripleX(str) {
+  const chars = str.split("");
   for (let i = 0; chars.length; i++) {
-    if (chars[i] === 'x' && chars[i + 1] !== 'x' && chars[i + 2] !== 'x') {
-      return false
+    if (chars[i] === "x" && chars[i + 1] !== "x" && chars[i + 2] !== "x") {
+      return false;
     }
 
-    if (chars[i] === 'x' && chars[i + 1] === 'x' && chars[i + 2] === 'x') {
-      return true
+    if (chars[i] === "x" && chars[i + 1] === "x" && chars[i + 2] === "x") {
+      return true;
     }
   }
 
-  return false
+  return false;
 }

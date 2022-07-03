@@ -6,20 +6,20 @@
 
 // Good luck!
 
-function solve(arr){
-  const frequency = {}
+function solve(arr) {
+  const frequency = {};
   const groupedArr = [];
 
   for (const number of arr) {
     if (!frequency[number]) {
       frequency[number] = 0;
     }
-    
-    frequency[number] += 1
+
+    frequency[number] += 1;
   }
 
   for (const key of Object.keys(frequency)) {
-    groupedArr.push(new Array(frequency[key]).fill(parseInt(key)))
+    groupedArr.push(new Array(frequency[key]).fill(parseInt(key)));
   }
 
   groupedArr.sort((a, b) => {
@@ -32,7 +32,7 @@ function solve(arr){
     }
 
     return -1;
-  })
+  });
 
   return [].concat.apply([], groupedArr);
 }

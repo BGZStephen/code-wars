@@ -22,12 +22,15 @@
 
 function cutTheRopes(a) {
   const res = [];
-  
+
   while (a.reduce((a, v) => a + v, 0) > 0) {
     let ropesCut = 0;
 
-    const smallestNumner = Math.min.apply(Math, a.filter(a => a > 0))
-    
+    const smallestNumner = Math.min.apply(
+      Math,
+      a.filter((a) => a > 0)
+    );
+
     for (let i = 0; i < a.length; i++) {
       if (a[i] !== 0) {
         a[i] -= smallestNumner;
@@ -36,7 +39,7 @@ function cutTheRopes(a) {
     }
 
     if (ropesCut > 0) {
-      res.push(ropesCut)
+      res.push(ropesCut);
     }
   }
 

@@ -16,4 +16,4 @@ var summation = function (num) {
   }
 
   return res;
-}
+};

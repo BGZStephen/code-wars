@@ -12,7 +12,7 @@
 // unluckyDays(1986) == 1
 // Note: In Ruby years will start from 1593.
 
-function unluckyDays(year){
+function unluckyDays(year) {
   let count = 0;
   for (let i = 1; i < 13; i++) {
     if (new Date(`${year}-${i >= 10 ? i : `0${i}`}-13`).getDay() === 5) {

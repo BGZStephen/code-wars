@@ -20,11 +20,11 @@ function calc(expr) {
   }
 
   const operators = {
-    '/': 'divide',
-    '*': 'multiply',
-    '+': 'add',
-    '-': 'subtract',
-  }
+    "/": "divide",
+    "*": "multiply",
+    "+": "add",
+    "-": "subtract",
+  };
   let operatorPresence = false;
 
   expr = expr.split(" ");
@@ -32,43 +32,43 @@ function calc(expr) {
     if (expr.indexOf(operator) !== -1) {
       operatorPresence = true;
     }
-  })
+  });
 
   if (!operatorPresence) {
     expr.sort(function (a, b) {
-      return a < b
-    })
-    return parseFloat(expr[0])
+      return a < b;
+    });
+    return parseFloat(expr[0]);
   }
 
-  let answer = 0
+  let answer = 0;
 
-  for(let i = 0; i < expr.length; i++) {
+  for (let i = 0; i < expr.length; i++) {
     Object.keys(operators).forEach(function (key) {
       if (expr[i + 1] === key) {
-        if (operators[key] === 'divide') {
-          answer += (expr[i -1] / expr[i])
-          i += 2
+        if (operators[key] === "divide") {
+          answer += expr[i - 1] / expr[i];
+          i += 2;
         }
 
-        if (operators[key] === 'multiply') {
-          answer += (expr[i -1] * expr[i])
-          i += 2
+        if (operators[key] === "multiply") {
+          answer += expr[i - 1] * expr[i];
+          i += 2;
         }
 
-        if (operators[key] === 'subtract') {
-          answer += (expr[i -1] - expr[i])
-          i += 2
+        if (operators[key] === "subtract") {
+          answer += expr[i - 1] - expr[i];
+          i += 2;
         }
 
-        if (operators[key] === 'add') {
-          answer += parseFloat(expr[i -1]) + parseFloat(expr[i])
-          i += 2
+        if (operators[key] === "add") {
+          answer += parseFloat(expr[i - 1]) + parseFloat(expr[i]);
+          i += 2;
         }
       }
-    })
+    });
   }
-  return answer
+  return answer;
 }
 
 calc("5 1 2 + 4 * + 3");

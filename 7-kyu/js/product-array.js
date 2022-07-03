@@ -35,24 +35,24 @@
 
 // Finally ,The Fifth element 900 is the product of all array's elements except the fifth element 2
 
-function productArray(numbers){
+function productArray(numbers) {
   const res = [];
-  
+
   for (const [index, value] of numbers.entries()) {
     let number;
     for (const [nestedIndex, nestedValue] of numbers.entries()) {
       if (!number && nestedIndex !== index) {
         number = nestedValue;
       } else if (number && nestedIndex !== index) {
-        number *= nestedValue
+        number *= nestedValue;
       }
     }
 
-    res.push(number)
+    res.push(number);
   }
 
   return res;
 }
 
-console.log(productArray([12,20]))
-console.log(productArray([3,27,4,2]))
+console.log(productArray([12, 20]));
+console.log(productArray([3, 27, 4, 2]));

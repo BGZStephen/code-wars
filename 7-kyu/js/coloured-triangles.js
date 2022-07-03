@@ -23,13 +23,13 @@
 // Adapted from the 2017 British Informatics Olympiad
 
 function triangle(row) {
-  row = row.split('');
+  row = row.split("");
 
   while (row.length > 1) {
-    row = condenseRow(row)
+    row = condenseRow(row);
   }
 
-  return row.join('');
+  return row.join("");
 }
 
 function condenseRow(row) {
@@ -37,35 +37,35 @@ function condenseRow(row) {
 
   for (let i = 0, j = 1; j <= row.length; i++, j++) {
     if (row[i] === row[j]) {
-      res.push(row[i])
+      res.push(row[i]);
     }
 
-    if (row[i] === 'B' && row[j] === 'G') {
-      res.push('R')
+    if (row[i] === "B" && row[j] === "G") {
+      res.push("R");
     }
 
-    if (row[i] === 'B' && row[j] === 'R') {
-      res.push('G')
+    if (row[i] === "B" && row[j] === "R") {
+      res.push("G");
     }
 
-    if (row[i] === 'R' && row[j] === 'G') {
-      res.push('B')
+    if (row[i] === "R" && row[j] === "G") {
+      res.push("B");
     }
 
-    if (row[i] === 'R' && row[j] === 'B') {
-      res.push('G')
+    if (row[i] === "R" && row[j] === "B") {
+      res.push("G");
     }
 
-    if (row[i] === 'G' && row[j] === 'R') {
-      res.push('B')
+    if (row[i] === "G" && row[j] === "R") {
+      res.push("B");
     }
 
-    if (row[i] === 'G' && row[j] === 'B') {
-      res.push('R')
+    if (row[i] === "G" && row[j] === "B") {
+      res.push("R");
     }
   }
 
   return res;
 }
 
-console.log(triangle('RGB'))
+console.log(triangle("RGB"));

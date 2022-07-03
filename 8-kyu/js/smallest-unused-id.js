@@ -8,15 +8,15 @@
 
 // Go on and code some pure awesomeness!
 
-function nextId(ids){
-  ids = [...new Set(ids.sort((a, b) => a - b))]
+function nextId(ids) {
+  ids = [...new Set(ids.sort((a, b) => a - b))];
   if (Math.min(...ids) > 0) {
-    return 0
+    return 0;
   }
-  
+
   for (const [i, v] of ids.entries()) {
     if (!ids[i + 1] || ids[i + 1] !== v + 1) {
-      return v + 1
+      return v + 1;
     }
   }
 }

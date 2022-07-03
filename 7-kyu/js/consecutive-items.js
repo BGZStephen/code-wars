@@ -9,5 +9,5 @@ function consecutive(arr, a, b) {
     return true;
   }
 
-  return false
+  return false;
 }

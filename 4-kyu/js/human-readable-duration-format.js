@@ -26,15 +26,14 @@ A unit of time must be used "as much as possible". It means that the function sh
 
 */
 
-
-function formatDuration (seconds) {
+function formatDuration(seconds) {
   const timeDurations = {
     YEAR: 31536000,
     DAY: 86400,
     HOUR: 3600,
     MINUTE: 60,
     SECOND: 1,
-  }
+  };
 
   let timeQuantities = {
     year: 0,
@@ -42,40 +41,43 @@ function formatDuration (seconds) {
     hour: 0,
     minute: 0,
     second: 0,
-  }
+  };
 
   let outputValues = [];
-  let outputString = '';
+  let outputString = "";
 
   if (seconds <= 0) {
-    return 'now';
+    return "now";
   }
 
-  Object.keys(timeDurations).forEach(function(key) {
+  Object.keys(timeDurations).forEach(function (key) {
     while (seconds - timeDurations[key] >= 0) {
-      seconds -= timeDurations[key]
+      seconds -= timeDurations[key];
       timeQuantities[key.toLowerCase()] += 1;
     }
-  })
+  });
 
-  Object.keys(timeQuantities).forEach(function(key) {
-    if(timeQuantities[key] > 0) {
-      outputValues.push(timeQuantities[key] > 1 ? `${timeQuantities[key]} ${key}s` : `${timeQuantities[key]} ${key}`)
+  Object.keys(timeQuantities).forEach(function (key) {
+    if (timeQuantities[key] > 0) {
+      outputValues.push(
+        timeQuantities[key] > 1
+          ? `${timeQuantities[key]} ${key}s`
+          : `${timeQuantities[key]} ${key}`
+      );
     }
-  })
+  });
 
   for (let i = 0; i < outputValues.length; i++) {
     if (i < outputValues.length - 2) {
-      outputString += `${outputValues[i]}, `
-    } else if (i < outputValues.length -1) {
-      outputString += `${outputValues[i]} and `
+      outputString += `${outputValues[i]}, `;
+    } else if (i < outputValues.length - 1) {
+      outputString += `${outputValues[i]} and `;
     } else {
-      outputString += `${outputValues[i]}`
+      outputString += `${outputValues[i]}`;
     }
-
   }
 
   console.log(outputString);
 }
 
-formatDuration(3662)
+formatDuration(3662);

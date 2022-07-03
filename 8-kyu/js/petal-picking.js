@@ -12,19 +12,19 @@ Your goal in this kata is to determine which phrase the girls would say for a fl
 
 function howMuchILoveYou(nbPetals) {
   const answers = [
-    'I love you',
-    'a little',
-    'a lot',
-    'passionately',
-    'madly',
-    'not at all'
-  ]
-  
+    "I love you",
+    "a little",
+    "a lot",
+    "passionately",
+    "madly",
+    "not at all",
+  ];
+
   let answerPosition = 0;
-  
+
   for (let i = 1; i < nbPetals; i += 1) {
     answerPosition = answerPosition + 1 === 6 ? 0 : answerPosition + 1;
   }
-  
+
   return answers[answerPosition];
 }

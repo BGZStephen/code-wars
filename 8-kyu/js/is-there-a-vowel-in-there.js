@@ -4,8 +4,12 @@
 
 // Return the resulting array.
 
-function isVow(a){
-  const vowelsAsInts = ["a", "e", "i", "o", "u"].map(number => number.charCodeAt(0))
+function isVow(a) {
+  const vowelsAsInts = ["a", "e", "i", "o", "u"].map((number) =>
+    number.charCodeAt(0)
+  );
 
-  return a.map(number => vowelsAsInts.includes(number) ? String.fromCharCode(number) : number)
+  return a.map((number) =>
+    vowelsAsInts.includes(number) ? String.fromCharCode(number) : number
+  );
 }

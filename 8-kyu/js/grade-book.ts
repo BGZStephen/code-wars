@@ -12,21 +12,21 @@
 export function getGrade(a: number, b: number, c: number) {
   const average = (a + b + c) / 3;
 
-  if (average >= 90) { 
-    return "A"
+  if (average >= 90) {
+    return "A";
   }
 
-  if (average >= 80) { 
-    return "B"
+  if (average >= 80) {
+    return "B";
   }
 
-  if (average >= 70) { 
-    return "C"
+  if (average >= 70) {
+    return "C";
   }
 
-  if (average >= 60) { 
-    return "D"
+  if (average >= 60) {
+    return "D";
   }
 
-  return "F"
+  return "F";
 }

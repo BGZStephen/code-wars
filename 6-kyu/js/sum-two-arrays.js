@@ -12,11 +12,11 @@
 // [3,2,6,6],[-7,2,2,8] --> [-3,9,6,2] # 3266 + (-7228) = -3962
 
 function addArrays(array1, array2) {
-  let arrayToNumber1 = parseInt(array1.join(''));
-  let arrayToNumber2 = parseInt(array2.join(''));
+  let arrayToNumber1 = parseInt(array1.join(""));
+  let arrayToNumber2 = parseInt(array2.join(""));
 
   if (!array1.length && array2.length) {
-    return []
+    return [];
   }
 
   if (!array1.length) {
@@ -27,5 +27,8 @@ function addArrays(array1, array2) {
     return array1;
   }
 
-  return String(arrayToNumber1 + arrayToNumber2).split(/(\-?[0-9]{1})/).filter(c => c).map(c => parseInt(c));
+  return String(arrayToNumber1 + arrayToNumber2)
+    .split(/(\-?[0-9]{1})/)
+    .filter((c) => c)
+    .map((c) => parseInt(c));
 }

@@ -20,13 +20,13 @@ function loneliest(str) {
   const result = {
     spaceCount: 0,
     values: [],
-  }
+  };
 
   if (!str.match(/ /)) {
-    return str.split('');
+    return str.split("");
   }
 
-  const splitString = str.split('');
+  const splitString = str.split("");
 
   for (let [index, char] of splitString.entries()) {
     if (char.match(/\w/)) {
@@ -35,26 +35,32 @@ function loneliest(str) {
       let leftSpaceIndex = index - 1;
       let rightSpaceIndex = index + 1;
 
-      while (splitString[leftSpaceIndex] && splitString[leftSpaceIndex].match(/ /)) {
+      while (
+        splitString[leftSpaceIndex] &&
+        splitString[leftSpaceIndex].match(/ /)
+      ) {
         leftSpaceCount += 1;
         leftSpaceIndex -= 1;
       }
 
-      while (splitString[rightSpaceIndex] && splitString[rightSpaceIndex].match(/ /)) {
+      while (
+        splitString[rightSpaceIndex] &&
+        splitString[rightSpaceIndex].match(/ /)
+      ) {
         rightSpaceCount += 1;
         rightSpaceIndex += 1;
       }
 
       const totalSpaceCount = leftSpaceCount + rightSpaceCount;
-      
+
       if (totalSpaceCount > result.spaceCount) {
         result.spaceCount = totalSpaceCount;
-        result.values = [splitString[index]]
+        result.values = [splitString[index]];
       } else if (totalSpaceCount === result.spaceCount) {
-        result.values.push(splitString[index])
+        result.values.push(splitString[index]);
       }
     }
   }
 
-  return result.values
+  return result.values;
 }

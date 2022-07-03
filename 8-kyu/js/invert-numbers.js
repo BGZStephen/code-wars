@@ -8,7 +8,7 @@
 function invert(array) {
   const res = [];
 
-  array.map(number => res.push(-number))
+  array.map((number) => res.push(-number));
 
   return res;
 }

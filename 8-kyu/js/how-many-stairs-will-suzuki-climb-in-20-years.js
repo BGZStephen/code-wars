@@ -23,5 +23,11 @@
 // Suzuki needs help lining up his students!
 
 function stairsIn20(s) {
-  return s.reduce((totalAcc, totalVal) => totalAcc + totalVal.reduce((acc, val) => acc + val, 0), 0) * 20
+  return (
+    s.reduce(
+      (totalAcc, totalVal) =>
+        totalAcc + totalVal.reduce((acc, val) => acc + val, 0),
+      0
+    ) * 20
+  );
 }

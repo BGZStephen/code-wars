@@ -35,11 +35,13 @@ function strong(n) {
 
   let factorial = 0;
 
-  for (const number of String(n).split('').map(s => parseInt(s))) {
+  for (const number of String(n)
+    .split("")
+    .map((s) => parseInt(s))) {
     let incrementBy = 1;
 
     for (let i = 1; i <= number; i++) {
-      incrementBy *= i
+      incrementBy *= i;
     }
 
     factorial += incrementBy;

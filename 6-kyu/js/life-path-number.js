@@ -15,15 +15,27 @@
 // Note: If the month or day is a single digit number, then it shall be preceeded by a 0 (zero). For example, in Einstein's case the month of March is 3; which is a single digit number. The function shall in this case be called with the following parameter: lifePathNumber("1879-03-14").
 
 function lifePathNumber(dateOfBirth) {
-  const [year, month, date] = dateOfBirth.split('-')
+  const [year, month, date] = dateOfBirth.split("-");
 
   const reducer = (acc, curr) => acc + curr;
-  const mapper = s => parseInt(s);
-  const yearNumbers = String(year).split('').map(mapper).reduce(reducer).toString().split('').map(mapper).reduce(reducer);
-  const monthNumbers = String(month).split('').map(mapper).reduce(reducer)
-  const dateNumbers = String(date).split('').map(mapper).reduce(reducer)
+  const mapper = (s) => parseInt(s);
+  const yearNumbers = String(year)
+    .split("")
+    .map(mapper)
+    .reduce(reducer)
+    .toString()
+    .split("")
+    .map(mapper)
+    .reduce(reducer);
+  const monthNumbers = String(month).split("").map(mapper).reduce(reducer);
+  const dateNumbers = String(date).split("").map(mapper).reduce(reducer);
 
-  const res = [yearNumbers, monthNumbers, dateNumbers].reduce(reducer).toString().split('').map(mapper).reduce(reducer)
+  const res = [yearNumbers, monthNumbers, dateNumbers]
+    .reduce(reducer)
+    .toString()
+    .split("")
+    .map(mapper)
+    .reduce(reducer);
 
   return res % 10 === 0 ? res / 10 : res;
 }

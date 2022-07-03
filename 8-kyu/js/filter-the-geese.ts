@@ -11,8 +11,14 @@
 // ["Mallard", "Hook Bill", "Crested", "Blue Swedish"]
 // The elements in the returned array should be in the same order as in the initial array passed to your function, albeit with the 'geese' removed. Note that all of the strings will be in the same case as those provided, and some elements may be repeated.
 
-export function gooseFilter (birds: string[]): string[] {
-  const geese: String[] = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+export function gooseFilter(birds: string[]): string[] {
+  const geese: String[] = [
+    "African",
+    "Roman Tufted",
+    "Toulouse",
+    "Pilgrim",
+    "Steinbacher",
+  ];
 
-  return birds.filter(bird => !geese.includes(bird))
+  return birds.filter((bird) => !geese.includes(bird));
 }

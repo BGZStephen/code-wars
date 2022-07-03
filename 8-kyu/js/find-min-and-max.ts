@@ -10,6 +10,8 @@
 
 // You may consider that there will not be any empty arrays/vectors.
 
-export const min = (list: number[]): number => list.reduce((a, b) => Math.min(a, b));
+export const min = (list: number[]): number =>
+  list.reduce((a, b) => Math.min(a, b));
 
-export const max = (list: number[]): number => list.reduce((a, b) => Math.max(a, b));
+export const max = (list: number[]): number =>
+  list.reduce((a, b) => Math.max(a, b));

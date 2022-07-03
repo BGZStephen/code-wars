@@ -4,10 +4,10 @@ Example: arr = ['Keep', 'Remove', 'Keep', 'Remove', 'Keep', ...];
 
 None of the arrays will be empty, so you don't have to worry about that! */
 
-function removeEveryOther(arr){
+function removeEveryOther(arr) {
   const newArr = [];
-  for (let i = 0; i < arr.length; i+= 2) {
-    newArr.push(arr[i])
+  for (let i = 0; i < arr.length; i += 2) {
+    newArr.push(arr[i]);
   }
 
   return newArr;

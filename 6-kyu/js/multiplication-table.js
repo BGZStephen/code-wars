@@ -10,12 +10,12 @@
 function multiplicationTable(size) {
   const res = [];
   for (let i = 1; i <= size; i++) {
-    res.push([i])
+    res.push([i]);
   }
 
   for (let i = 0; i < res.length; i++) {
     for (let j = 2; j <= size; j++) {
-      res[i].push(j * res[i][0])
+      res[i].push(j * res[i][0]);
     }
   }
 

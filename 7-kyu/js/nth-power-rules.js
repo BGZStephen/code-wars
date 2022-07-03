@@ -8,7 +8,10 @@
 
 function modifiedSum(a, n) {
   const originalArraySum = a.reduce((acc, curr) => acc + curr, 0);
-  const poweredArraySum = a.reduce((acc, curr) => acc += Math.pow(curr, n), 0)
+  const poweredArraySum = a.reduce(
+    (acc, curr) => (acc += Math.pow(curr, n)),
+    0
+  );
 
   return poweredArraySum - originalArraySum;
 }

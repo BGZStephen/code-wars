@@ -16,16 +16,16 @@
 
 // Have fun :)
 
-function lastChair(numberOfChairs){
-  let chairs = new Array(numberOfChairs).fill(null, 0, numberOfChairs)
+function lastChair(numberOfChairs) {
+  let chairs = new Array(numberOfChairs).fill(null, 0, numberOfChairs);
   chairs[0] = 1;
 
   for (let i = 2; i <= numberOfChairs; i++) {
-    const nextPositionToOccupy = determineNextPosition(chairs)
+    const nextPositionToOccupy = determineNextPosition(chairs);
     chairs[nextPositionToOccupy] = i;
   }
 
-  return chairs.indexOf(numberOfChairs) + 1
+  return chairs.indexOf(numberOfChairs) + 1;
 }
 
 function determineNextPosition(chairs) {
@@ -40,14 +40,14 @@ function determineNextPosition(chairs) {
 
     if (chair) {
       if (largestGap < temporaryLargestGap) {
-        largestGap = temporaryLargestGap
+        largestGap = temporaryLargestGap;
       }
 
       position = index - largestGap;
       temporaryLargestGap = 0;
     }
 
-    if (index === chairs.length -1 && largestGap < temporaryLargestGap) {
+    if (index === chairs.length - 1 && largestGap < temporaryLargestGap) {
       position = index;
       largestGap = temporaryLargestGap;
     }
@@ -61,14 +61,14 @@ function test() {
   const test1Res = lastChair(10);
 
   if (test1Res !== 9) {
-    console.log(`Expected ${9}, got ${test1Res}`)
+    console.log(`Expected ${9}, got ${test1Res}`);
   }
 
   if (failingTests) {
-    process.exit(1)
+    process.exit(1);
   }
 
-  process.exit(0)
+  process.exit(0);
 }
 
-test()
+test();

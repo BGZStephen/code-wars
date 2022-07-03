@@ -12,16 +12,16 @@ export function bmi(weight: number, height: number): string {
   const val = weight / Math.pow(height, 2);
 
   if (val < 18.5) {
-    return "Underweight"
+    return "Underweight";
   }
 
   if (val < 25) {
-    return "Normal"
+    return "Normal";
   }
 
   if (val < 30) {
-    return "Overweight"
+    return "Overweight";
   }
 
-  return "Obese"
+  return "Obese";
 }

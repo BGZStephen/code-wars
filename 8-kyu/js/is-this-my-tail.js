@@ -7,8 +7,5 @@
 // For Haskell, body has the type of String and tail has the type of Char. For Go, body has type string and tail has type rune.
 
 function correctTail(body, tail) {
-  return tail === body[body.length - 1]
+  return tail === body[body.length - 1];
 }
-  
-
-  

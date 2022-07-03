@@ -24,23 +24,23 @@
 // decode("5057aan") -> "Impossible to decode"
 
 function decode(string) {
-  const numbers = string.replace(new RegExp(/[a-z]/, 'g'), '')
-  const letters = string.replace(new RegExp(/[0-9]/, 'g'), '')
+  const numbers = string.replace(new RegExp(/[a-z]/, "g"), "");
+  const letters = string.replace(new RegExp(/[0-9]/, "g"), "");
 
-  let decodedString = '';
+  let decodedString = "";
 
-  for (const letter of letters.split('')) {
+  for (const letter of letters.split("")) {
     const letterToNumber = letter.charCodeAt(0) - 97;
-    
+
     for (let i = 0; i < 26; i++) {
-      if ((i * parseInt(numbers) % 26 === letterToNumber)) {
+      if ((i * parseInt(numbers)) % 26 === letterToNumber) {
         decodedString += String.fromCharCode(i + 97);
       }
-    } 
+    }
   }
 
   if (decodedString.match(/[A-Z]/) || decodedString.length !== letters.length) {
-    return "Impossible to decode"
+    return "Impossible to decode";
   }
 
   return decodedString;

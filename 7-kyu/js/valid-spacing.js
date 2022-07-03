@@ -9,7 +9,7 @@
 // 'Hello  world' = false
 // 'Hello' = true
 // // Even though there are no spaces, it is still valid because none are needed
-// 'Helloworld' = true 
+// 'Helloworld' = true
 // // true because we are not checking for the validity of words.
 // ' ' = false
 // '' = true

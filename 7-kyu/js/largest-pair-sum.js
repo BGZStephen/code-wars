@@ -8,6 +8,6 @@
 
 function largestPairSum(numbers) {
   const reverseSortedNumbers = numbers.sort((a, b) => b - a);
-  
-  return reverseSortedNumbers[0] + reverseSortedNumbers[1]
+
+  return reverseSortedNumbers[0] + reverseSortedNumbers[1];
 }

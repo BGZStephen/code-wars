@@ -28,8 +28,8 @@ function sumPairs(ints, s) {
   const generallyUniqueInts = [];
 
   for (const [index, value] of ints.entries()) {
-    if (ints[index +1] !== value || ints[index + 2] !== value) {
-      generallyUniqueInts.push(value)
+    if (ints[index + 1] !== value || ints[index + 2] !== value) {
+      generallyUniqueInts.push(value);
     }
   }
 
@@ -38,26 +38,29 @@ function sumPairs(ints, s) {
       return bestMatch.values;
     }
 
-    for (let j = i + 1; j < generallyUniqueInts.length; j += 1) {   
+    for (let j = i + 1; j < generallyUniqueInts.length; j += 1) {
       if (bestMatch && i > bestMatch.endIndex) {
         break;
       }
-      
+
       if (generallyUniqueInts[i] + generallyUniqueInts[j] === s) {
         if (!bestMatch) {
           bestMatch = {
             startIndex: i,
             endIndex: j,
-            values: [generallyUniqueInts[i], generallyUniqueInts[j]]
-          }
+            values: [generallyUniqueInts[i], generallyUniqueInts[j]],
+          };
         }
 
-        if (j < bestMatch.endIndex && ((j - i) < bestMatch.endIndex - bestMatch.startIndex)) {
+        if (
+          j < bestMatch.endIndex &&
+          j - i < bestMatch.endIndex - bestMatch.startIndex
+        ) {
           bestMatch = {
             startIndex: i,
             endIndex: j,
-            values: [generallyUniqueInts[i], generallyUniqueInts[j]]
-          }
+            values: [generallyUniqueInts[i], generallyUniqueInts[j]],
+          };
         }
       }
     }

@@ -45,9 +45,9 @@ class Song {
 
     for (const name of names) {
       if (!this.listeners.includes(name.toLowerCase())) {
-        count += 1
-        this.listeners.push(name.toLowerCase())
-      }  
+        count += 1;
+        this.listeners.push(name.toLowerCase());
+      }
     }
 
     return count;

@@ -8,18 +8,18 @@
 // (Also, there is no reason to test for edge cases: the input to your function will always be valid for this kata.)
 
 function splitInteger(num, parts) {
-  if (num / parts % 1 === 0) {
-    return new Array(parts).fill(num / parts, 0)
+  if ((num / parts) % 1 === 0) {
+    return new Array(parts).fill(num / parts, 0);
   }
 
-  const res = new Array(parts).fill(Math.floor(num / parts))
+  const res = new Array(parts).fill(Math.floor(num / parts));
 
   let remaining = num - res.reduce((a, b) => a + b, 0);
 
   for (remaining; remaining > 0; remaining--) {
     res[0] += 1;
-    res.sort()
+    res.sort();
   }
 
-  return res
+  return res;
 }

@@ -23,45 +23,41 @@ More about roman numerals - http://en.wikipedia.org/wiki/Roman_numerals
 
 */
 
+function solution(number) {
+  let romanNumber = [];
 
-function solution(number){
+  const numerals = [["I", "V"], ["X", "L"], ["C", "D"], ["M"]];
 
-  let romanNumber = []
-
-  const numerals = [
-    ['I', 'V'],
-    ['X', 'L'],
-    ['C', 'D'],
-    ['M'],
-  ]
-
-  let numberToConvert = number.toString().split('')
+  let numberToConvert = number.toString().split("");
   while (numberToConvert.length > 0) {
     if (numberToConvert.length >= 4) {
       for (let j = 0; j < numberToConvert[0]; j++) {
-        romanNumber.push('M')
+        romanNumber.push("M");
       }
-    } else if (parseInt(numberToConvert[0]) > 0 && parseInt(numberToConvert[0]) <= 3) {
-      for (let j = 0; j < parseInt(numberToConvert[0]); j ++) {
-        romanNumber.push(numerals[numberToConvert.length -1][0])
+    } else if (
+      parseInt(numberToConvert[0]) > 0 &&
+      parseInt(numberToConvert[0]) <= 3
+    ) {
+      for (let j = 0; j < parseInt(numberToConvert[0]); j++) {
+        romanNumber.push(numerals[numberToConvert.length - 1][0]);
       }
     } else if (parseInt(numberToConvert[0]) === 4) {
-      romanNumber.push(numerals[numberToConvert.length - 1][0])
-      romanNumber.push(numerals[numberToConvert.length - 1][1])
-    }  else if (parseInt(numberToConvert[0]) === 5) {
-      romanNumber.push(numerals[numberToConvert.length -1][1])
+      romanNumber.push(numerals[numberToConvert.length - 1][0]);
+      romanNumber.push(numerals[numberToConvert.length - 1][1]);
+    } else if (parseInt(numberToConvert[0]) === 5) {
+      romanNumber.push(numerals[numberToConvert.length - 1][1]);
     } else if (parseInt(numberToConvert[0]) > 5 && numberToConvert[0] <= 8) {
-      romanNumber.push(numerals[numberToConvert.length -1][1])
-      for (let j = 0; j < parseInt(numberToConvert[0]) - 5; j ++) {
-        romanNumber.push(numerals[numberToConvert.length - 1][0])
+      romanNumber.push(numerals[numberToConvert.length - 1][1]);
+      for (let j = 0; j < parseInt(numberToConvert[0]) - 5; j++) {
+        romanNumber.push(numerals[numberToConvert.length - 1][0]);
       }
     } else if (parseInt(numberToConvert[0]) === 9) {
-      romanNumber.push(numerals[numberToConvert.length -1][0])
-      romanNumber.push(numerals[numberToConvert.length][0])
+      romanNumber.push(numerals[numberToConvert.length - 1][0]);
+      romanNumber.push(numerals[numberToConvert.length][0]);
     }
-    numberToConvert.shift()
+    numberToConvert.shift();
   }
-  return romanNumber.join().replace(/,/gi, '')
+  return romanNumber.join().replace(/,/gi, "");
 }
 
 solution(2008);

@@ -12,9 +12,9 @@
 // There can be multiple parentheses.
 // The parentheses can be nested.
 
-function removeParentheses(s){
+function removeParentheses(s) {
   while (s.match(/\(.{0,}\)/)) {
-    s = s.replace(/\([^()]*\)/, '')
+    s = s.replace(/\([^()]*\)/, "");
   }
 
   return s;

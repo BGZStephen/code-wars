@@ -12,7 +12,7 @@
 // abcdefuvwxyz ("      12)  concatenation of strarr[4] and strarr[5]
 
 // Two strings are the longest: "folingtrashy" and "abcdefuvwxyz".
-// The first that came is "folingtrashy" so 
+// The first that came is "folingtrashy" so
 // longest_consec(strarr, 2) should return "folingtrashy".
 
 // In the same way:
@@ -23,18 +23,18 @@
 // consecutive strings : follow one after another without an interruption
 
 export function longestConsec(strarr: string[], k: number): string {
-  let res = ""
-  
+  let res = "";
+
   if (k > strarr.length || k <= 0) {
-    return res
+    return res;
   }
 
   for (let i = 0; i + k <= strarr.length; i++) {
-    const newStr = strarr.slice(i, i + k).join("")
+    const newStr = strarr.slice(i, i + k).join("");
     if (newStr.length > res.length) {
-      res = newStr
+      res = newStr;
     }
   }
 
-  return res
+  return res;
 }

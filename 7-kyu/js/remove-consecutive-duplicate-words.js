@@ -4,14 +4,14 @@
 
 // --> "alpha beta gamma delta alpha beta gamma delta"
 
-const removeConsecutiveDuplicates = s => {
+const removeConsecutiveDuplicates = (s) => {
   const res = [];
 
-  for (const string of s.split(' ')) {
+  for (const string of s.split(" ")) {
     if (res[res.length - 1] !== string) {
-      res.push(string)
+      res.push(string);
     }
   }
 
-  return res.join(' ')
-}
+  return res.join(" ");
+};

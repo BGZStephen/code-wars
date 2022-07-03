@@ -25,9 +25,18 @@ function killer(suspectInfo, dead) {
     }
 
     if (isKiller) {
-      return key
+      return key;
     }
   }
 }
 
-console.log(killer({'James': ['Jacob', 'Bill', 'Lucas'], 'Johnny': ['David', 'Kyle', 'Lucas'], 'Peter': ['Lucy', 'Kyle']}, ['Lucas', 'Bill']))
+console.log(
+  killer(
+    {
+      James: ["Jacob", "Bill", "Lucas"],
+      Johnny: ["David", "Kyle", "Lucas"],
+      Peter: ["Lucy", "Kyle"],
+    },
+    ["Lucas", "Bill"]
+  )
+);

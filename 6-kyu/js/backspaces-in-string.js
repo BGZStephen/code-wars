@@ -9,12 +9,11 @@
 // ""              ==>  ""
 
 function cleanString(s) {
-  while(s.match(/[^#]#/)) {
-    s = s.replace(/[^#]#/g, '')
+  while (s.match(/[^#]#/)) {
+    s = s.replace(/[^#]#/g, "");
   }
 
-  s = s.replace(/#/g, '')
+  s = s.replace(/#/g, "");
 
-  return s
-};
-
+  return s;
+}

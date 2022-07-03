@@ -9,13 +9,15 @@
 
 function sortArray(array) {
   let res = [];
-  const sortedOnlyOdds = array.filter(number => number % 2 !== 0).sort((a, b) => a - b);
+  const sortedOnlyOdds = array
+    .filter((number) => number % 2 !== 0)
+    .sort((a, b) => a - b);
 
   for (const number of array) {
     if (number % 2 === 0) {
-      res.push(number)
+      res.push(number);
     } else {
-      res.push(sortedOnlyOdds.shift())
+      res.push(sortedOnlyOdds.shift());
     }
   }
 

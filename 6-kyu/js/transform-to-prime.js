@@ -21,8 +21,7 @@
 // Explanation:
 // Since , the sum of the list's elements equal to (189) , the minimum number to be inserted to transform the sum to prime number is (2) , which will make *the sum of the List** equal the closest prime number (191)* .
 
-
-function minimumNumber(numbers){
+function minimumNumber(numbers) {
   const currentNumberSum = numbers.reduce((curr, acc) => curr + acc, 0);
   let nextPrime = currentNumberSum;
 
@@ -30,18 +29,18 @@ function minimumNumber(numbers){
     nextPrime += 1;
   }
 
-  return nextPrime - currentNumberSum 
+  return nextPrime - currentNumberSum;
 }
 
 function isPrime(num) {
-  for(let i = 2; i < num; i++) {
+  for (let i = 2; i < num; i++) {
     if (num % i === 0) {
-      return false
-    };
+      return false;
+    }
   }
 
   if (num <= 0) {
-    return false
+    return false;
   }
 
   return true;

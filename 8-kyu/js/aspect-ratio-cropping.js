@@ -4,6 +4,6 @@
 
 // This kata is part of a series with Aspect Ratio Cropping - Part 2 .
 
-function aspectRatio(x,y){
-  return [Math.ceil(y / 9 * 16), y]
+function aspectRatio(x, y) {
+  return [Math.ceil((y / 9) * 16), y];
 }

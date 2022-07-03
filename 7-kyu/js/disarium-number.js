@@ -17,13 +17,16 @@
 // Explanation:
 // Since , 51 + 62 + 43 = 105 != 564 , thus output is "Not !!"
 
-function disariumNumber(n){
+function disariumNumber(n) {
   let isDisarium = false;
 
   let sum = 0;
 
-  for (const [index, value] of String(n).split('').map(s => parseInt(s)).entries()) {
-    sum += Math.pow(value, index + 1)
+  for (const [index, value] of String(n)
+    .split("")
+    .map((s) => parseInt(s))
+    .entries()) {
+    sum += Math.pow(value, index + 1);
   }
 
   if (sum === n) {
@@ -33,4 +36,4 @@ function disariumNumber(n){
   return isDisarium ? "Disarium !!" : "Not !!";
 }
 
-console.log(disariumNumber(89))
+console.log(disariumNumber(89));

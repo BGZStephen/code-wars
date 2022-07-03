@@ -4,13 +4,13 @@
 // If arr contains [4, 8, 6] then the output should be 2 because two numbers need to be added to the array (5 and 7) to make it a consecutive array of numbers from 4 to 8. Numbers in arr will be unique.
 
 function consecutive(arr) {
-  arr.sort((a, b) => a - b)
-  
+  arr.sort((a, b) => a - b);
+
   let required = 0;
-  
+
   for (let i = 0, j = 1; j < arr.length; i++, j++) {
     if (arr[i] + 1 !== arr[j]) {
-      required += (arr[j] - arr[i]) - 1
+      required += arr[j] - arr[i] - 1;
     }
   }
 

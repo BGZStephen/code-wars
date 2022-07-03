@@ -3,7 +3,7 @@
 // Example:
 
 // a=[1,2,0,3]
-// a.length-1=3 
+// a.length-1=3
 // a includes [0,3] ,hence the function should return true
 
 function isAllPossibilities(x) {
@@ -11,7 +11,7 @@ function isAllPossibilities(x) {
     return false;
   }
 
-  x = x.sort((a, b) => a - b)
+  x = x.sort((a, b) => a - b);
 
   for (let i = 0; i < x.length; i++) {
     if (x[i] !== i) {

@@ -14,43 +14,46 @@ Courtesy of rosettacode.org
 
 */
 
-function solution(list){
+function solution(list) {
+  let rangedList = [];
 
-  let rangedList = []
-
-  list.sort(function(a, b) {
+  list.sort(function (a, b) {
     return a - b;
-  })
+  });
 
   for (let i = 0; i < list.length; i++) {
     let consecutives = [];
 
     while (list[i] + 1 === list[i + 1]) {
-      consecutives.push(list[i])
-      i++
+      consecutives.push(list[i]);
+      i++;
     }
 
-    if(consecutives.length > 0) {
-      consecutives.push(list[i])
+    if (consecutives.length > 0) {
+      consecutives.push(list[i]);
     }
 
-    if(consecutives.length > 2) {
-      consecutives.push(list[i])
-      rangedList += `${consecutives[0]}-${consecutives[consecutives.length - 1]},`
+    if (consecutives.length > 2) {
+      consecutives.push(list[i]);
+      rangedList += `${consecutives[0]}-${
+        consecutives[consecutives.length - 1]
+      },`;
     } else if (consecutives.length > 0) {
       consecutives.forEach(function (number) {
-        rangedList += `${number},`
-      })
+        rangedList += `${number},`;
+      });
     }
 
-    if(consecutives.length === 0) {
-      rangedList += `${list[i]},`
+    if (consecutives.length === 0) {
+      rangedList += `${list[i]},`;
     }
   }
 
   // remove trailing ,
-  rangedList = rangedList.slice(0, rangedList.length -1)
-  return rangedList
+  rangedList = rangedList.slice(0, rangedList.length - 1);
+  return rangedList;
 }
 
-solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20])
+solution([
+  -6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20,
+]);

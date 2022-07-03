@@ -9,16 +9,16 @@
 // If the array is empty or the array has only one element the result should be 0 (Nothing in Haskell, None in Rust).
 
 function sumOfDifferences(arr) {
-    arr = arr.sort((a, b) => b - a)
-    let res = 0;
-    
-    if (arr.length < 2) {
-      return 0
-    }
-    
-    for (let i = 0, j = 1; j < arr.length; i++, j++) {
-      res += arr[i] - arr[j]
-    }
-    
-    return res;
+  arr = arr.sort((a, b) => b - a);
+  let res = 0;
+
+  if (arr.length < 2) {
+    return 0;
   }
+
+  for (let i = 0, j = 1; j < arr.length; i++, j++) {
+    res += arr[i] - arr[j];
+  }
+
+  return res;
+}

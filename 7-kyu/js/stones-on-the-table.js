@@ -9,9 +9,12 @@
 // "RRRRGGGGBBBB" => 9
 
 function solve(stones) {
-  const str = stones.replace(/R+R/g, 'R').replace(/G+G/g, 'G').replace(/B+B/g, 'B')
+  const str = stones
+    .replace(/R+R/g, "R")
+    .replace(/G+G/g, "G")
+    .replace(/B+B/g, "B");
 
   return stones.length - str.length;
 }
 
-console.log(solve('RRRRGGGGBBBB'))
+console.log(solve("RRRRGGGGBBBB"));

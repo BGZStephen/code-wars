@@ -14,26 +14,26 @@
 // 90  -->  (81, 2)  # because the largest such number below 90 is 81,
 //                   # and there are two ways of getting it: 3**4, 9**2
 
-function largestPower(n){
+function largestPower(n) {
   if (n === 1) {
-    return [0, -1]
+    return [0, -1];
   }
 
   if (n <= 4) {
-    return [1, -1]
+    return [1, -1];
   }
 
-  const largestClosest = getLargestClosest(n)
-  const exponentCount = getExponents(largestClosest)
+  const largestClosest = getLargestClosest(n);
+  const exponentCount = getExponents(largestClosest);
 
-  return [largestClosest, exponentCount]
+  return [largestClosest, exponentCount];
 }
 
 function getLargestClosest(n) {
   for (n; n > 0; n--) {
-    for (let base = 2; base < n - 1; base ++) {
-      if ((Math.log2(n - 1) / Math.log2(base) % 1 === 0)) {
-        return (n - 1)
+    for (let base = 2; base < n - 1; base++) {
+      if ((Math.log2(n - 1) / Math.log2(base)) % 1 === 0) {
+        return n - 1;
       }
     }
   }
@@ -42,8 +42,8 @@ function getLargestClosest(n) {
 function getExponents(n) {
   let count = 0;
 
-  for (let base = 2; base <= (n / 2); base ++) {
-    if ((Math.log2(n) / Math.log2(base) % 1 === 0)) {
+  for (let base = 2; base <= n / 2; base++) {
+    if ((Math.log2(n) / Math.log2(base)) % 1 === 0) {
       count += 1;
     }
   }

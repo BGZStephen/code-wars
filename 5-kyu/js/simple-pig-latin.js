@@ -6,18 +6,18 @@ pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
 
 */
 
-function pigIt(str){
-  const strArray = str.split(' ')
-  pigLatinArray = []
+function pigIt(str) {
+  const strArray = str.split(" ");
+  pigLatinArray = [];
 
   strArray.forEach(function (string) {
-    let firstLetter = string[0]
-    string += `${firstLetter}ay`
-    string = string.slice(1, string.length)
-    pigLatinArray.push(string)
-  })
+    let firstLetter = string[0];
+    string += `${firstLetter}ay`;
+    string = string.slice(1, string.length);
+    pigLatinArray.push(string);
+  });
 
-  return pigLatinArray.join(', ').replace(/,/g, '')
+  return pigLatinArray.join(", ").replace(/,/g, "");
 }
 
-pigIt('This is my string')
+pigIt("This is my string");

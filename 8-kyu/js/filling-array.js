@@ -6,11 +6,11 @@
 
 // arr(5) // => [0,1,2,3,4]
 
-const arr = n => {
-  let array = []
-  for (let i = 0; i < n; i ++) {
-    array.push(i)
+const arr = (n) => {
+  let array = [];
+  for (let i = 0; i < n; i++) {
+    array.push(i);
   }
 
-  return array
+  return array;
 };

@@ -3,10 +3,14 @@
 
 // The function takes a name as its only argument, and returns one of the following strings:
 
-// name + " plays banjo" 
+// name + " plays banjo"
 // name + " does not play banjo"
 // Names given are always valid strings.
 
 function areYouPlayingBanjo(name) {
-  return name[0] === 'R' ? `${name} plays banjo` : name[0] === 'r' ? `${name} plays banjo` : `${name} does not play banjo`
+  return name[0] === "R"
+    ? `${name} plays banjo`
+    : name[0] === "r"
+    ? `${name} plays banjo`
+    : `${name} does not play banjo`;
 }

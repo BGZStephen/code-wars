@@ -13,14 +13,14 @@ function reverse(arr) {
   let end = arr.length - 1;
 
   while (start < end) {
-    const tempA = arr[start]
-    const tempB = arr[end]
+    const tempA = arr[start];
+    const tempB = arr[end];
 
-    arr[end] = tempA
-    arr[start] = tempB
+    arr[end] = tempA;
+    arr[start] = tempB;
 
-    start ++;
-    end --;
+    start++;
+    end--;
   }
 
   return arr;

@@ -23,9 +23,9 @@
 function replaceNth(text, n, oldValue, newValue) {
   if (n < 0 || n > text.length) {
     return text;
-  };
+  }
 
-  const splitString = text.split("")
+  const splitString = text.split("");
 
   let currentPosition = 1;
 
@@ -39,7 +39,6 @@ function replaceNth(text, n, oldValue, newValue) {
     if (splitString[i] === oldValue && currentPosition !== n) {
       currentPosition += 1;
     }
-
   }
 
   return splitString.join("");

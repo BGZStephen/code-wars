@@ -7,8 +7,9 @@
 // [0, 0, 0, 0, 0] -> []
 
 function onesCounter(input) {
-  return input.join("")
+  return input
+    .join("")
     .split("0")
     .filter((string) => string.length > 0)
-    .map(string => string.length)
+    .map((string) => string.length);
 }

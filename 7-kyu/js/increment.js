@@ -11,6 +11,6 @@
 // [4, 6, 9, 1, 3]  -->  [5, 8, 2, 5, 8]  #  [4+1, 6+2, 9+3, 1+4, 3+5]
 //                                        #  9+3 = 12  -->  2
 
-function incrementer(nums) { 
-  return nums.map((number, index) => (number + index + 1) % 10)
+function incrementer(nums) {
+  return nums.map((number, index) => (number + index + 1) % 10);
 }

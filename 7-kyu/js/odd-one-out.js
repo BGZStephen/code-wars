@@ -12,6 +12,6 @@ function oddNum(arr) {
       return index;
     }
   }
-  
-  return -1
+
+  return -1;
 }

@@ -5,8 +5,8 @@
 // Examples:
 
 // pointsPer48(12, 20) // 28.8
-// pointsPer48(10, 10) // 48 
-// pointsPer48(5, 17) // 14.1 
+// pointsPer48(10, 10) // 48
+// pointsPer48(5, 17) // 14.1
 // pointsPer48(0, 0) // 0
 // Notes:
 // All inputs will be either be an integer or float.
@@ -14,8 +14,8 @@
 
 function pointsPer48(ppg, mpg) {
   if (mpg === 0 || ppg === 0) {
-    return 0
+    return 0;
   }
 
-  return parseFloat((ppg / (mpg / 48)).toFixed(1), 1)
+  return parseFloat((ppg / (mpg / 48)).toFixed(1), 1);
 }

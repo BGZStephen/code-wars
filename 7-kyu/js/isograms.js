@@ -6,6 +6,6 @@
 // "aba" --> false
 // "moOse" --> false (ignore letter case)
 
-function isIsogram(str){
-  return str.length === new Set(str.toLowerCase().split("")).size
+function isIsogram(str) {
+  return str.length === new Set(str.toLowerCase().split("")).size;
 }

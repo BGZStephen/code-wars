@@ -9,19 +9,23 @@
 
 // Good luck!
 
-function solve(arr){
-  const maxSorted = arr.sort((a, b) => b - a).slice(0, Math.ceil(arr.length / 2))
-  const minSorted = arr.sort((a, b) => a - b).slice(0, Math.floor(arr.length / 2))
+function solve(arr) {
+  const maxSorted = arr
+    .sort((a, b) => b - a)
+    .slice(0, Math.ceil(arr.length / 2));
+  const minSorted = arr
+    .sort((a, b) => a - b)
+    .slice(0, Math.floor(arr.length / 2));
 
   let res = [];
 
   for (let i = 0; i < maxSorted.length; i++) {
-    res.push(maxSorted[i])
+    res.push(maxSorted[i]);
 
-    if (typeof minSorted[i] === 'number') {
-      res.push(minSorted[i])
+    if (typeof minSorted[i] === "number") {
+      res.push(minSorted[i]);
     }
   }
 
   return res;
-};
+}

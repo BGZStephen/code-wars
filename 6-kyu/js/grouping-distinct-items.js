@@ -27,83 +27,83 @@ function distinctResults(results, attributeForDistinct) {
     if (!groupedByKey[item[attributeForDistinct]]) {
       groupedByKey[item[attributeForDistinct]] = {
         distinctAttribute: item[attributeForDistinct],
-        results: [item]
-      }
+        results: [item],
+      };
     } else {
-      groupedByKey[item[attributeForDistinct]].results.push(item)
+      groupedByKey[item[attributeForDistinct]].results.push(item);
     }
   }
 
   const res = [];
 
   for (const key of Object.keys(groupedByKey)) {
-    res.push(groupedByKey[key])
+    res.push(groupedByKey[key]);
   }
 
-  return res
+  return res;
 }
 
 const original = [
   {
     _distinctSeqID: 0,
-    category: 'people',
-    name: 'me',
+    category: "people",
+    name: "me",
   },
   {
     _distinctSeqID: 1,
-    category: 'people',
-    name: 'you',
+    category: "people",
+    name: "you",
   },
   {
     _distinctSeqID: 2,
-    category: 'people',
-    name: 'them',
+    category: "people",
+    name: "them",
   },
   {
     _distinctSeqID: 0,
-    category: 'animals',
-    name: 'dog',
+    category: "animals",
+    name: "dog",
   },
   {
     _distinctSeqID: 1,
-    category: 'animals',
-    name: 'cat',
+    category: "animals",
+    name: "cat",
   },
   {
     _distinctSeqID: 2,
-    category: 'animals',
-    name: 'squirrel',
+    category: "animals",
+    name: "squirrel",
   },
   {
     _distinctSeqID: 0,
-    category: 'buildings',
-    name: 'bank',
+    category: "buildings",
+    name: "bank",
   },
   {
     _distinctSeqID: 1,
-    category: 'buildings',
-    name: 'house',
+    category: "buildings",
+    name: "house",
   },
   {
     _distinctSeqID: 0,
-    category: 'names',
-    name: 'john',
+    category: "names",
+    name: "john",
   },
   {
     _distinctSeqID: 1,
-    category: 'names',
-    name: 'francine',
+    category: "names",
+    name: "francine",
   },
   {
     _distinctSeqID: 2,
-    category: 'names',
-    name: 'abi',
+    category: "names",
+    name: "abi",
   },
   {
     _distinctSeqID: 3,
-    category: 'names',
-    name: 'haroen',
+    category: "names",
+    name: "haroen",
   },
 ];
 
-console.log(distinctResults(original, 'category'))
+console.log(distinctResults(original, "category"));

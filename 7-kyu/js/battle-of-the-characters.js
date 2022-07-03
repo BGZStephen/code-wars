@@ -19,32 +19,32 @@ function battle(x, y) {
 
   for (const character of x) {
     if (character === character.toUpperCase()) {
-      xScore += character.charCodeAt(0) - 64
+      xScore += character.charCodeAt(0) - 64;
     } else {
-      xScore += (character.toUpperCase().charCodeAt(0) - 64) / 2
+      xScore += (character.toUpperCase().charCodeAt(0) - 64) / 2;
     }
   }
 
   for (const character of y) {
     if (character === character.toUpperCase()) {
-      yScore += character.charCodeAt(0) - 64
+      yScore += character.charCodeAt(0) - 64;
     } else {
-      yScore += (character.toUpperCase().charCodeAt(0) - 64) / 2
+      yScore += (character.toUpperCase().charCodeAt(0) - 64) / 2;
     }
   }
 
   if (xScore > yScore) {
-    return x
+    return x;
   }
 
   if (yScore > xScore) {
-    return y
+    return y;
   }
 
-  return "Tie!"
+  return "Tie!";
 }
 
 // console.log(battle("One", "Two"))
-console.log(battle("One", "Neo"))
+console.log(battle("One", "Neo"));
 // console.log(battle("One", "neO"))
 // console.log(battle("Four", "Five"))

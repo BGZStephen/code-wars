@@ -23,7 +23,7 @@ function sumOrProduct(array, n) {
   array.sort((a, b) => a - b);
 
   for (let i = 0; i < n; i++) {
-    i === 0 ? product = array[i] : product *= array[i]
+    i === 0 ? (product = array[i]) : (product *= array[i]);
   }
 
   array.sort((a, b) => b - a);
@@ -32,5 +32,5 @@ function sumOrProduct(array, n) {
     sum += array[i];
   }
 
-  return sum > product ? 'sum' : sum === product ? 'same' : 'product';
+  return sum > product ? "sum" : sum === product ? "same" : "product";
 }

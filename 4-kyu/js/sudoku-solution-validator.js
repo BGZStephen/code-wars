@@ -38,43 +38,42 @@ validSolution([
 
 */
 
-function validSolution(board){
-
-  const clonedArray = JSON.parse(JSON.stringify(board))
+function validSolution(board) {
+  const clonedArray = JSON.parse(JSON.stringify(board));
 
   for (let i = 0; i < 9; i += 1) {
     let tempBoard = JSON.parse(JSON.stringify(board));
-    if (tempBoard[i].sort().join('') != 123456789) {
+    if (tempBoard[i].sort().join("") != 123456789) {
       return false;
     }
   }
 
   for (let i = 0; i < 9; i += 1) {
-    let tempBoard = JSON.parse(JSON.stringify(board))
-    let tempGrid = []
+    let tempBoard = JSON.parse(JSON.stringify(board));
+    let tempGrid = [];
     for (let j = 0; j < 9; j += 1) {
-      tempGrid.push(board[j][i])
+      tempGrid.push(board[j][i]);
     }
 
-    if (tempGrid.sort().join('') != 123456789) {
+    if (tempGrid.sort().join("") != 123456789) {
       return false;
     }
   }
 
   for (let i = 0; i < 9; i += 3) {
-    let tempBoard = JSON.parse(JSON.stringify(board))
+    let tempBoard = JSON.parse(JSON.stringify(board));
     for (let j = 0; j < 9; j += 3) {
-      let tempGrid = []
-      tempGrid.push(board[i][j])
-      tempGrid.push(board[i][j + 1])
-      tempGrid.push(board[i][j + 2])
-      tempGrid.push(board[i + 1][j])
-      tempGrid.push(board[i + 1][j + 1])
-      tempGrid.push(board[i + 1][j + 2])
-      tempGrid.push(board[i + 2][j])
-      tempGrid.push(board[i + 2][j + 1])
-      tempGrid.push(board[i + 2][j + 2])
-      if (tempGrid.sort().join('') != 123456789) {
+      let tempGrid = [];
+      tempGrid.push(board[i][j]);
+      tempGrid.push(board[i][j + 1]);
+      tempGrid.push(board[i][j + 2]);
+      tempGrid.push(board[i + 1][j]);
+      tempGrid.push(board[i + 1][j + 1]);
+      tempGrid.push(board[i + 1][j + 2]);
+      tempGrid.push(board[i + 2][j]);
+      tempGrid.push(board[i + 2][j + 1]);
+      tempGrid.push(board[i + 2][j + 2]);
+      if (tempGrid.sort().join("") != 123456789) {
         return false;
       }
     }
@@ -92,5 +91,5 @@ validSolution([
   [7, 1, 3, 9, 2, 4, 8, 5, 6],
   [9, 0, 1, 5, 3, 7, 2, 1, 4],
   [2, 8, 7, 4, 1, 9, 6, 3, 5],
-  [3, 0, 0, 4, 8, 1, 1, 7, 9]
-])
+  [3, 0, 0, 4, 8, 1, 1, 7, 9],
+]);

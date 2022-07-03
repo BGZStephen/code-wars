@@ -16,8 +16,8 @@ function sumOfN(n) {
   let res = [0];
 
   for (let i = 1; i <= (n < 0 ? -n : n); i++) {
-    res.push(n < 0 ? res[i - 1] - i : res[i - 1] + i )
+    res.push(n < 0 ? res[i - 1] - i : res[i - 1] + i);
   }
 
   return res;
-};
+}

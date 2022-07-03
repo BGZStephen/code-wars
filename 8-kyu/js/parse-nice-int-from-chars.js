@@ -4,8 +4,8 @@ For correct answer program should return int from 0 to 9.
 
 Assume test input string always valid and may look like "1 year old" or "5 years old", etc.. The first char is number only. */
 
-function getAge(inputString){
-  return parseInt(inputString.split(' ')[0]);
+function getAge(inputString) {
+  return parseInt(inputString.split(" ")[0]);
 }
 
-getAge("4 years old")
+getAge("4 years old");

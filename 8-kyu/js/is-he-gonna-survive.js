@@ -2,7 +2,7 @@
 
 Return True if yes, False otherwise :) */
 
-function hero(bullets, dragons){
+function hero(bullets, dragons) {
   if (dragons === 0) {
     return true;
   }

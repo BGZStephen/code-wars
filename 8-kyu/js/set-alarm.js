@@ -9,6 +9,6 @@
 // setalarm(false, false) -> false
 // setalarm(true, false) -> true
 
-function setAlarm(employed, vacation){
-  return employed && !vacation 
+function setAlarm(employed, vacation) {
+  return employed && !vacation;
 }

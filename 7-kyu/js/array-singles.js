@@ -6,19 +6,19 @@
 
 // Good luck!
 
-function repeats(arr){
+function repeats(arr) {
   arr = arr.sort();
   let sum = 0;
 
   for (let i = 0; i < arr.length; i += 1) {
-    if (arr[i] === arr[i + 1]) { 
+    if (arr[i] === arr[i + 1]) {
       i += 1;
     } else {
       sum += arr[i];
     }
   }
 
-  return sum
-};
+  return sum;
+}
 
-console.log(repeats([4,5,7,5,4,8]))
+console.log(repeats([4, 5, 7, 5, 4, 8]));

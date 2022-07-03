@@ -7,24 +7,25 @@
 
 function dashatize(num) {
   if (num < 0) {
-     num = -num;
+    num = -num;
   }
 
   if (Number.isNaN(num)) {
-    return 'NaN';
+    return "NaN";
   }
-  
-  const arrayOfNumbers = String(num).split('');
+
+  const arrayOfNumbers = String(num).split("");
 
   const res = [];
 
   for (const [index, number] of arrayOfNumbers.entries()) {
     const isOddNumber = parseInt(number) % 2 !== 0;
-    const addStartingDash = index !== 0 && isOddNumber && res[res.length - 1] !==  '-';
-    const addEndingDash = index !== (arrayOfNumbers.length - 1) && isOddNumber;
+    const addStartingDash =
+      index !== 0 && isOddNumber && res[res.length - 1] !== "-";
+    const addEndingDash = index !== arrayOfNumbers.length - 1 && isOddNumber;
 
-    res.push(addStartingDash ? '-' : '', number, addEndingDash ? '-' : '')
+    res.push(addStartingDash ? "-" : "", number, addEndingDash ? "-" : "");
   }
 
-  return res.join('');
+  return res.join("");
 }

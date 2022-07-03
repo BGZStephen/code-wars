@@ -13,7 +13,7 @@
 // Good luck!
 
 function getTheVowels(word) {
-  let vowels = ['a', 'e', 'i', 'o', 'u'];
+  let vowels = ["a", "e", "i", "o", "u"];
   let nextVowelIndex = 0;
   let consecutiveVowelCount = 0;
 

@@ -7,6 +7,6 @@
 // "12345"  -->  false
 // "a234"   -->  false
 
-function validatePIN (pin) {
-  return (pin.match(/(^[0-9]{4}$|^[0-9]{6}$)/) !== null)
+function validatePIN(pin) {
+  return pin.match(/(^[0-9]{4}$|^[0-9]{6}$)/) !== null;
 }
