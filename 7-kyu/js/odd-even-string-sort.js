@@ -21,15 +21,15 @@
 function sortMyString(S) {
   let evens = "";
   let odds = "";
-  
+
   for (let i = 0; i < S.length; i++) {
     if (i % 2 === 0) {
       evens += S[i];
       continue;
     }
-    
+
     odds += S[i];
   }
-  
+
   return `${evens} ${odds}`
 }
