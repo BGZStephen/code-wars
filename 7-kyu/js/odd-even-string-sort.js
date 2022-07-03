@@ -18,3 +18,18 @@
 // odd ones are 1, 3, 5, 7, so the second group is 'oeas'
 // And the final string to return is 'Cdwr oeas'
 
+function sortMyString(S) {
+  let evens = "";
+  let odds = "";
+  
+  for (let i = 0; i < S.length; i++) {
+    if (i % 2 === 0) {
+      evens += S[i];
+      continue;
+    }
+    
+    odds += S[i];
+  }
+  
+  return `${evens} ${odds}`
+}
