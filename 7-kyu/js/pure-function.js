@@ -11,3 +11,12 @@
 // Modifier = 5
 
 // Should return = 11, 12, 13
+
+function solution(arr, options) {
+  const res = [];
+  for (let i = 0; i < arr.length; ++i) {
+    res[i] = arr[i] + 2 * options.modifier;
+  }
+  
+  return res;
+}
