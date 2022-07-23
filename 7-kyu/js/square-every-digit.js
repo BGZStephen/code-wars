@@ -3,3 +3,15 @@
 // For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1.
 
 // Note: The function accepts an integer and returns an integer
+
+function squareDigits(num) {
+  let res = "";
+
+  for (const numberAsString of String(num)) {
+    const number = parseInt(numberAsString);
+
+    res += number * number;
+  }
+
+  return parseInt(res);
+}
