@@ -6,3 +6,23 @@
 // The Stanton measure of [1, 4, 3, 2, 1, 2, 3, 2] is 3, because 1 occurs 2 times in the array and 2 occurs 3 times.
 
 // The Stanton measure of [1, 4, 1, 2, 11, 2, 3, 1] is 1, because 1 occurs 3 times in the array and 3 occurs 1 time.
+
+/*
+  function:- stantonMeasure
+  input:- integer array
+  output:- stanton measure of the array
+*/
+
+function stantonMeasure(values) {
+  const hashMap = {};
+
+  for (let i = 0; i < values.length; i++) {
+    if (!hashMap[values[i]]) {
+      hashMap[values[i]] = 0
+    }
+
+    hashMap[values[i]] += 1
+  }
+
+  return hashMap[hashMap[1]] || 0
+}
