@@ -10,3 +10,28 @@
 // decode "csordaew" -> "codewars"
 // encode "white" -> "wehti"
 // decode "wehti" -> "white"
+
+function encode(s) {
+  const splitString = s.split("")
+  let nextAction = "shift";
+  let res = "";
+  
+  while (splitString.length > 0) {
+    if (nextAction === "shift") {
+      res += splitString.shift()
+      nextAction = "pop"
+    } else {
+      res += splitString.pop()
+      nextAction = "shift"
+    }
+  }
+  
+  return res;
+}
+
+function decode(s) {
+  const splitString = s.split("")
+  let res = splitString.filter((v, i) => i % 2 === 0).join("")
+  res += splitString.filter((v, i) => i % 2 !== 0).reverse().join("")
+  return res;
+}
