@@ -11,3 +11,11 @@
 // text before = "abc"
 // character   = "z"
 // text after  = "zzz"
+
+function contamination(text, char){
+  if (text === '') {
+    return ''
+  }
+  
+  return char.repeat(text.length)
+}
