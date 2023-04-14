@@ -12,3 +12,10 @@
 
 // Example
 // "128.32.10.1" => 2149583361
+
+function ipToInt32(ip) {
+  return parseInt(
+    ip.split(".")
+      .map(octet => parseInt(octet).toString(2).padStart(8, 0))
+      .join(""), 2);
+}
