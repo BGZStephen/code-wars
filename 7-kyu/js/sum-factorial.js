@@ -13,3 +13,18 @@
 
 // Note: Assume that all values in the list are positive integer values > 0 and each value in the list is unique.
 
+function sumFactorial(arr){
+  return arr.map(factorialize).reduce((acc, val) => acc + val)
+}
+
+function factorialize(number) {
+  if (number < 0)  {
+    return -1;
+  }
+
+  if (number === 0) {
+    return 1;
+  }
+
+  return (number * factorialize(number - 1));
+}
