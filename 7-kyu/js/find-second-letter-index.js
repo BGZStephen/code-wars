@@ -5,3 +5,18 @@
 // secondSymbol('Hello world!!!','l')  --> 3
 // secondSymbol('Hello world!!!', 'A') --> -1
 // Good luck ;) And don't forget to rate this Kata if you liked it.
+
+function secondSymbol(s, symbol) {
+  let charCount = 0;
+  for (const [index, value] of s.split("").entries()) {
+    if (symbol === value && charCount === 1) {
+      return index;
+    }
+    
+    if (symbol === value && charCount === 0) {
+      charCount += 1;
+    }
+  }
+  
+  return -1;
+}
