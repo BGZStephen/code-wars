@@ -26,3 +26,47 @@
 // ];
 
 // return ["name1", "name3"];
+
+function findHack(arr) {
+  const gradeScores = {
+    A: 30,
+    B: 20,
+    C: 10,
+    D: 5
+  }
+
+  const res = [];
+
+  for (const scorecard of arr) {
+    const [name, score, grades] = scorecard;
+
+    let hasadditionalPoints = true;
+
+    let calculatedScore = 0;
+
+    for (const grade of grades) {
+      const gradeScore = gradeScores[grade] || 0;
+
+      if (gradeScore < 20) {
+        hasadditionalPoints = false;
+      }
+
+      calculatedScore += gradeScore;
+    }
+
+    if (hasadditionalPoints) {
+      calculatedScore += 20;
+    }
+
+    if (calculatedScore > 200 & score !== 200) {
+      res.push(name)
+      continue;
+    }
+
+    if (calculatedScore !== score) {
+      res.push(name)
+    }
+  }
+
+  return res;
+}
