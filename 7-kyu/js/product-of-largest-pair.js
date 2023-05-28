@@ -7,3 +7,21 @@
 // maxProduct([2, 1, 5, 0, 4, 3])              // 20
 // maxProduct([7, 8, 9])                       // 72
 // maxProduct([33, 231, 454, 11, 9, 99, 57])   // 104874
+
+function maxProduct(a) {
+  let largestNumber = a[0] > a[1] ? a[0] : a[1]
+  let secondLargestNumber = a[0] > a[1] ? a[1] : a[0]
+  
+  for (let i = 2; i < a.length; i++) {
+    if (a[i] >= largestNumber) {
+      secondLargestNumber = largestNumber;
+      largestNumber = a[i];
+    }
+    
+    if (a[i] < largestNumber && secondLargestNumber < a[i]) {
+      secondLargestNumber = a[i];
+    }
+  }
+
+  return largestNumber * secondLargestNumber;
+}
