@@ -4,7 +4,7 @@ func CountPositivesSumNegatives(numbers []int) []int {
 	res := []int{0, 0}
 
 	for _, value := range numbers {
-		if value < 0 {
+		if value > 0 {
 			res[0] = res[0] + 1
 			continue
 		}
